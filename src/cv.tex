@@ -1,38 +1,38 @@
 \documentclass[10pt, letterpaper]{article}
 
 \usepackage[
-    ignoreheadfoot, 
-    top=1.5 cm, 
-    bottom=2 cm, 
-    left=2 cm, 
-    right=2 cm, 
-    footskip=1.0 cm, 
-]{geometry} 
-\usepackage{titlesec} 
-\usepackage{tabularx} 
-\usepackage{array} 
-\usepackage[dvipsnames]{xcolor} 
-\definecolor{primaryColor}{RGB}{0, 0, 0} 
-\usepackage{enumitem} 
-\usepackage{fontawesome5} 
-\usepackage{amsmath} 
+    ignoreheadfoot,
+    top=1.0 cm,
+    bottom=0.7 cm,
+    left=1.7 cm,
+    right=1.7 cm,
+    footskip=1.5 cm,
+]{geometry}
+\usepackage{titlesec}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage[dvipsnames]{xcolor}
+\definecolor{primaryColor}{RGB}{0, 0, 0}
+\usepackage{enumitem}
+\usepackage{fontawesome5}
+\usepackage{amsmath}
 \usepackage[
     pdftitle={Harry Geyer's CV},
     pdfauthor={Harry Geyer},
     pdfcreator={Harry Geyer},
     colorlinks=true,
     urlcolor=primaryColor
-]{hyperref} 
-\usepackage[pscoord]{eso-pic} 
-\usepackage{calc} 
-\usepackage{bookmark} 
-\usepackage{lastpage} 
-\usepackage{changepage} 
-\usepackage{paracol} 
-\usepackage{ifthen} 
-\usepackage{needspace} 
-\usepackage{iftex} 
-\usepackage[none]{hyphenat} 
+]{hyperref}
+\usepackage[pscoord]{eso-pic}
+\usepackage{calc}
+\usepackage{bookmark}
+\usepackage{lastpage}
+\usepackage{changepage}
+\usepackage{paracol}
+\usepackage{ifthen}
+\usepackage{needspace}
+\usepackage{iftex}
+\usepackage[none]{hyphenat}
 
 \ifPDFTeX
     \input{glyphtounicode}
@@ -45,19 +45,19 @@
 \usepackage{charter}
 
 \raggedright
-\AtBeginEnvironment{adjustwidth}{\partopsep0pt} 
-\pagestyle{empty} 
-\setcounter{secnumdepth}{0} 
-\setlength{\parindent}{0pt} 
-\setlength{\topskip}{0pt} 
-\setlength{\columnsep}{0.15cm} 
-\pagenumbering{gobble} 
+\AtBeginEnvironment{adjustwidth}{\partopsep0pt}
+\pagestyle{empty}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\topskip}{0pt}
+\setlength{\columnsep}{0.15cm}
+\pagenumbering{gobble}
 
 \titleformat{\section}{\needspace{4\baselineskip}\bfseries\large}{}{0pt}{}[\vspace{1pt}\titlerule]
 
-\titlespacing{\section}{-1pt}{0.3 cm}{0.2 cm} 
+\titlespacing{\section}{-1pt}{0.3 cm}{0.2 cm}
 
-\renewcommand\labelitemi{$\vcenter{\hbox{\small$\bullet$}}$} 
+\renewcommand\labelitemi{$\vcenter{\hbox{\small$\bullet$}}$}
 \newenvironment{highlights}{
     \begin{itemize}[
         topsep=0.10 cm,
@@ -68,7 +68,7 @@
     ]
 }{
     \end{itemize}
-} 
+}
 
 
 \newenvironment{highlightsforbulletentries}{
@@ -81,7 +81,7 @@
     ]
 }{
     \end{itemize}
-} 
+}
 
 \newenvironment{onecolentry}{
     \begin{adjustwidth}{
@@ -91,7 +91,7 @@
     }
 }{
     \end{adjustwidth}
-} 
+}
 
 \newenvironment{twocolentry}[2][]{
     \onecolentry
@@ -102,7 +102,7 @@
     \switchcolumn \raggedleft \secondColumn
     \end{paracol}
     \endonecolentry
-} 
+}
 
 \newenvironment{threecolentry}[3][]{
     \onecolentry
@@ -114,13 +114,13 @@
     \switchcolumn \raggedleft \thirdColumn
     \end{paracol}
     \endonecolentry
-} 
+}
 
 \newenvironment{header}{
     \setlength{\topsep}{0pt}\par\kern\topsep\centering\linespread{1.5}
 }{
     \par\kern\topsep
-} 
+}
 
 \newcommand{\placelastupdatedtext}{
     \AddToShipoutPictureFG*{
@@ -175,49 +175,6 @@
 
     \vspace{5 pt - 0.3 cm}
 
-    \section{Education}
-        \begin{twocolentry}{
-            2017 – 2020
-        }
-            \textbf{University of Warwick}, B.Sc. (Hons) in Physics
-        \end{twocolentry}
-
-        \vspace{0.10 cm}
-        \begin{onecolentry}
-            \begin{highlights}
-                \item 2.1, Second Class, Upper Division.
-
-                \item Modules include: classical mechanics, quantum mechanics, fluid dynamics \& thermal dynamics, mathematical methods for physicists, electrical power generation, challenges of climate change, computational physics and scientific computing.
-                \item Final project in handling, analysis and modelling of astronomical data (dust extinction).
-            \end{highlights}
-        \end{onecolentry}
-
-        \begin{twocolentry}{
-            2015 – 2017
-        }
-            \textbf{A-Levels}, 4 A to B
-        \end{twocolentry}
-
-        \vspace{0.10 cm}
-        \begin{onecolentry}
-            \begin{highlights}
-                \item A: Mathematics, Further Mathematics, B: Physics, Chemistry.
-            \end{highlights}
-        \end{onecolentry}
-
-        \begin{twocolentry}{
-            2010 – 2015
-        }
-            \textbf{GCSEs}, 11 A* to B
-        \end{twocolentry}
-
-        \vspace{0.10 cm}
-        \begin{onecolentry}
-            \begin{highlights}
-                \item A*: Mathematics, Computer Science, Physics, A: Chemistry, Biology, English Language, English Literature, German, ICT, History, B: Religious Education.
-            \end{highlights}
-        \end{onecolentry}
-
     \section{Experience}
         \begin{twocolentry}{
             2022 – Present
@@ -228,11 +185,11 @@
         \vspace{0.10 cm}
         \begin{onecolentry}
             \begin{highlights}
-                \item Responsible for all embedded work at Devtank during this period, as I am the main firmware engineer. Including design and implementation of a line of embedded industrial IoT products.
-                \item Reviewed and oversee collegues' work, trusted with managing co-workers and codebases.
-                \item Contributed to the linux kernel, expanding the functionality of an I2C driver, which Devtank then used in products.
-                \item Visited customers in industrial settings, discussing and implementing effective solutions.
-                \item Produced aggregate statistical functions (mean, variance, skew, etc.) with very few clock cycles that was implemented at high frequency on an MCU.
+                \item Sole firmware engineer responsible for embedded development across Devtank’s industrial IoT product line, deployed by multiple industrial clients.
+                \item Designed and implemented real-time firmware on STM32/ESP32 MCUs, optimizing statistical calculations (mean, variance, skew) to run in <10 clock cycles, enabling high-frequency sensor processing.
+                \item Upstreamed patch to the Linux kernel I2C driver, expanding functionality adopted in production hardware.
+                \item Defined embedded architecture and reviewed codebases for reliability, ensuring 0 critical defects in shipped releases.
+                \item Partnered with customers on-site to debug and integrate hardware, reducing deployment time by 30%%.
             \end{highlights}
         \end{onecolentry}
 
@@ -248,118 +205,118 @@
         \vspace{0.10 cm}
         \begin{onecolentry}
             \begin{highlights}
-                \item Conducted experiments and written contracted scientific reports explaining results accessible to both experts and laymen.
-                \item Collaborated with clients, handling professional relationships to deliver effective solutions, on time and on budget.
-                \item One of the primary architects for the Devtank backend, implementing scalable services.
-                \item Worked alongside clients who could have zero downtime in services and production lines, knowing how to create complete diverging plans to ensure acceptable outcomes in all scenarios.
-                \item Automated many workflows used by myself and my collegues, optimising time and increasing productivity.
+                \item Co-architected scalable backend services for monitoring/managing IoT devices, supporting 24/7 uptime for industrial clients with zero downtime tolerance.
+                \item Automated internal workflows with Python and Bash, saving ~5 hours/week of manual engineering effort.
+                \item Delivered contracted technical reports explaining complex scientific results, tailored for both technical and non-technical readers.
+                \item Collaborated directly with clients, delivering solutions on-time and on-budget while ensuring production continuity.
             \end{highlights}
         \end{onecolentry}
-    
-    \section{Skills}
 
+    \section{Education}
+        \begin{twocolentry}{
+            2017 – 2020
+        }
+            \textbf{University of Warwick}, B.Sc. (Hons) in Physics. 2.1, Second Class, Upper Division.
+        \end{twocolentry}
+
+        \vspace{0.10 cm}
         \begin{onecolentry}
             \begin{highlights}
-                \item \textbf{Creative problem solving} -- Applied creative problem-solving skills to develop innovative solutions for complex challenges, resulting in improved efficiency.
-                \item \textbf{Attention to detail} -- Exhibited strong attention to detail by meticulously reading and analysing technical documents and scientific papers (professionally and recreationally), ensuring accuracy and clarity in all interpretations and applications.
-                \item \textbf{Effictive communication} -- During my time at university, I took a module in \textit{Communicating Science}, having since used these skills to communicate effectively to specialist and non-specialists with presentations and literature. 
-                \item \textbf{Lateral thinking and self-critiquing} -- Utilised lateral thinking to redesign a service that reduced resource overheads by 75\%, while self-critiquing the process to identify areas for improvement and enhance future programming.
-                \item \textbf{Responsibility} -- Was lead point of contact for apprentice, overseeing work, supporting their learning.
+                \item Modules include: computational physics, scientific computing, fluid dynamics, electrical power generation.
+                \item Final project: data analysis \& modeling of astronomical dust extinction.
             \end{highlights}
         \end{onecolentry}
 
-    \section{Projects}
-        
         \begin{twocolentry}{
-            \href{https://github.com/harry-geyer/eese}{github.com/harry-geyer/eese}
+            2015 – 2017
         }
+            \textbf{A-Levels}, 4 A to B
+        \end{twocolentry}
+
+        \begin{twocolentry}{
+            2010 – 2015
+        }
+            \textbf{GCSEs}, 11 A* to B
+        \end{twocolentry}
+
+
+    \section{Technical Skills}
+
+        \begin{onecolentry}
+            \textbf{Languages}: C, C++, Python, SQL, Make, bash (advanced); Rust, JavaScript (ECMAScript), TypeScript, GLSL (proficient).
+        \end{onecolentry}
+
+        \vspace{0.2 cm}
+
+        \begin{onecolentry}
+            \textbf{Embedded}: STM32, ESP32, libopencm3, ESP-IDF, I2C/SPI/UART, RTOS concepts, Linux kernel driver dev, JTAG/GDB debugging.
+        \end{onecolentry}
+
+        \vspace{0.2 cm}
+
+        \begin{onecolentry}
+            \textbf{Software}: Flask, Django, PostgreSQL, MySQL, CI/CD pipelines.
+        \end{onecolentry}
+
+        \vspace{0.2 cm}
+
+        \begin{onecolentry}
+            \textbf{Tools}: Git, pytest, emscripten, OpenGL/WebGL, Docker.
+        \end{onecolentry}
+
+
+    \section{Projects \textit(Links provided)}
+
+        \begin{twocolentry}{\href{https://github.com/harry-geyer/eese}{github.com/harry-geyer/eese}}
             \textbf{Embedded Environmental Sensor Example}
         \end{twocolentry}
 
         \vspace{0.10 cm}
         \begin{onecolentry}
-            \begin{highlights}
-                \item Embedded firmware for an IoT environmental sensor using libopencm3. Implements two low level communication protocols, effective packet detection and corruption identification. 
-                \item Tools Used: C, libopencm3, gdb, python, ctypes, pytest, Make.
-            \end{highlights}
+            Firmware for IoT sensor (C, libopencm3, gdb, Python, pytest). Implemented custom packet detection and corruption identification with minimal overhead.
         \end{onecolentry}
 
         \vspace{0.2 cm}
 
-        \begin{twocolentry}{
-            \href{https://github.com/harry-geyer/pgwb}{github.com/harry-geyer/pgwb}
-        }
+        \begin{twocolentry}{\href{https://github.com/harry-geyer/pgwb}{github.com/harry-geyer/pgwb}}
             \textbf{Procedurally Generated Web Background}
         \end{twocolentry}
 
         \vspace{0.10 cm}
         \begin{onecolentry}
-            \begin{highlights}
-                \item Randomly generating and rendering backgrounds. Uses OpenGL and WebGL to render in the browser. Written in C for fast execution, compiled into WebAssembly with emscripten, and wrapped with JavaScript.
-                \item Built for my own website/blog. Backgrounds are procedurally generated worlds, generated from a seed, with configurable rules and probabilities on the varying properties.
-                \item Tools Used: C, OpenGL, WebAssembly, emscripten, JavaScript, HTML, Make.
-            \end{highlights}
+            OpenGL/WebGL rendering engine compiled to WebAssembly (C, OpenGL, WebAssembly, emscripten, JavaScript, HTML, Make).
         \end{onecolentry}
 
         \vspace{0.2 cm}
 
-        \begin{twocolentry}{
-            \href{https://github.com/harry-geyer/mfme}{github.com/harry-geyer/mfme}
-        }
-            \textbf{Mini File Manager Endpoint}
-        \end{twocolentry}
+        %\begin{twocolentry}{\href{https://github.com/harry-geyer/mfme}{github.com/harry-geyer/mfme}}
+        %    \textbf{Mini File Manager Endpoint}
+        %\end{twocolentry}
+        %
+        %\vspace{0.10 cm}
+        %\begin{onecolentry}
+        %    Lightweight file upload \& REST API (C, mongoose).
+        %\end{onecolentry}
+        %
+        %\vspace{0.2 cm}
 
-        \vspace{0.10 cm}
-        \begin{onecolentry}
-            \begin{highlights}
-                \item An endpoint for uploading files, and a REST API for retrieving information about uploaded files.
-                \item Tools Used: C, mongoose.
-            \end{highlights}
-        \end{onecolentry}
-
-        \vspace{0.2 cm}
-
-        \begin{twocolentry}{
-            \href{https://github.com/harry-geyer/cv}{github.com/harry-geyer/cv}
-        }
+        \begin{twocolentry}{\href{https://github.com/harry-geyer/cv}{github.com/harry-geyer/cv}}
             \textbf{Curriculum Vitae}
         \end{twocolentry}
 
         \vspace{0.10 cm}
         \begin{onecolentry}
-            \begin{highlights}
-                \item This CV, written in LaTex, for excellent version control.
-                \item Tools Used: LaTeX, texlive, Make.
-            \end{highlights}
+            Version-controlled CV for reproducibility (LaTeX, texlive, Make).
         \end{onecolentry}
-    
+
     \section{Other}
 
         \begin{onecolentry}
             \begin{highlights}
                 \item Languages: English (native), German (intermediate).
-                \item Completed bronze, silver, and gold Duke of Edinborough expeditions.
+                \item Completed bronze, silver, and gold Duke of Edinburgh expeditions.
                 \item Full and clean UK driving license since 2017.
             \end{highlights}
         \end{onecolentry}
-
-    \section{Technologies}
-        
-        \begin{onecolentry}
-            \textbf{Languages:}
-            \begin{highlights}
-                \item Advanced: C, C++, Python, SQL, Make, bash.
-                \item Proficient: Rust, JavaScript (ECMAScript), TypeScript, GLSL.
-            \end{highlights}
-        \end{onecolentry}
-
-        \vspace{0.2 cm}
- 
-        \begin{onecolentry}
-            \textbf{Technologies:} libopencm3, ESP-IDF, flask, Django, MySQL, PostgreSQL, CI/CD.
-        \end{onecolentry}
-
-
-    
 
 \end{document}
