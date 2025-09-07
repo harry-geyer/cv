@@ -14,3 +14,5 @@
 
 Output will be placed `build/cv.pdf`.
 
+License: see License file.
+
