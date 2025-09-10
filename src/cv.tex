@@ -3,7 +3,7 @@
 \usepackage[
     ignoreheadfoot,
     top=1.5 cm,
-    bottom=2 cm,
+    bottom=1.5 cm,
     left=2 cm,
     right=2 cm,
     footskip=1.0 cm,
@@ -33,6 +33,7 @@
 \usepackage{needspace}
 \usepackage{iftex}
 \usepackage[none]{hyphenat}
+\usepackage{ragged2e}
 
 \ifPDFTeX
     \input{glyphtounicode}
@@ -60,10 +61,10 @@
 \renewcommand\labelitemi{$\vcenter{\hbox{\small$\bullet$}}$}
 \newenvironment{highlights}{
     \begin{itemize}[
-        topsep=0.15 cm,
-        parsep=0.15 cm,
+        topsep=0.2 cm,
+        parsep=0.2 cm,
         partopsep=0pt,
-        itemsep=0pt,
+        itemsep=0.025 cm,
         leftmargin=0 cm + 10pt
     ]
 }{
@@ -96,7 +97,7 @@
 \newenvironment{twocolentry}[2][]{
     \onecolentry
     \def\secondColumn{#2}
-    \setcolumnwidth{\fill, 4.5 cm}
+    \setcolumnwidth{\fill, 4.75 cm}
     \begin{paracol}{2}
 }{
     \switchcolumn \raggedleft \secondColumn
@@ -143,11 +144,10 @@
     \newsavebox\ANDbox
     \sbox\ANDbox{$|$}
 
-
     \begin{header}
         \fontsize{25 pt}{25 pt}\selectfont Harry Geyer
 
-        \vspace{5 pt}
+        \vspace{0.5 cm}
 
         \normalsize
         \mbox{Newcastle-under-Lyme, Staffordshire, UK}
@@ -173,17 +173,17 @@
         \mbox{\hrefWithoutArrow{https://github.com/harry-geyer}{github.com/harry-geyer}}
     \end{header}
 
-    \vspace{0.35 cm}
+    \vspace{0.5 cm}
 
     \begin{adjustwidth}{1 cm}{1 cm}
         \begin{it}
-        \small
+        \justifying
         Embedded Systems Engineer with 5+ years of experiance designing real-time firmware and scalable backend systems for industrial IoT applications.
         Proven track record in Linux kernel contributions, performance optimization and client-facing delivery.
         \end{it}
     \end{adjustwidth}
 
-    \vspace{8 pt - 0.3 cm}
+    \vspace{0.45 cm}
 
     \section{Experience}
         \begin{twocolentry}{
@@ -195,11 +195,11 @@
         \vspace{0.10 cm}
         \begin{onecolentry}
             \begin{highlights}
-                \item Sole firmware engineer responsible for embedded development across Devtank’s industrial IoT product line, deployed by multiple industrial clients.
-                \item Designed and implemented real-time firmware on STM32/ESP32 MCUs, optimizing statistical calculations (mean, variance, skew) to run in <10 clock cycles, enabling high-frequency sensor processing.
-                \item Upstreamed patch to the Linux kernel I2C driver, expanding functionality adopted in production hardware.
+            \item Sole firmware engineer responsible for embedded development across Devtank’s \textbf{\textit{industrial IoT}} product line, deployed by multiple industrial clients.
+            \item Designed and implemented real-time firmware on \textbf{\textit{STM32}}/\textbf{\textit{ESP32 MCUs}}, optimizing statistical calculations (mean, variance, skew) to run in <10 clock cycles, enabling high-frequency sensor processing.
+            \item Upstreamed patch to the \textbf{\textit{Linux kernel}} I2C driver, expanding functionality adopted in production hardware.
                 \item Defined embedded architecture and reviewed codebases for reliability, ensuring 0 critical defects in shipped releases.
-                \item Partnered with customers on-site to debug and integrate hardware, reducing deployment time by 30%%.
+                \item Partnered with customers on-site to debug and integrate hardware, reducing deployment time by 30\%.
             \end{highlights}
         \end{onecolentry}
 
@@ -216,7 +216,7 @@
         \begin{onecolentry}
             \begin{highlights}
                 \item Co-architected scalable backend services for monitoring/managing IoT devices, supporting 24/7 uptime for industrial clients with zero downtime tolerance.
-                \item Automated internal workflows with Python and Bash, saving ~5 hours/week of manual engineering effort.
+                \item Automated internal workflows with \textbf{\textit{Python}} and \textbf{\textit{Bash}}, saving ~5 hours/week of manual engineering effort.
                 \item Delivered contracted technical reports explaining complex scientific results, tailored for both technical and non-technical readers.
                 \item Collaborated directly with clients, delivering solutions on-time and on-budget while ensuring production continuity.
             \end{highlights}
@@ -233,22 +233,37 @@
         \begin{onecolentry}
             \begin{highlights}
                 \item Modules include: computational physics, scientific computing, fluid dynamics, electrical power generation.
-                \item Final project: data analysis \& modeling of astronomical dust extinction (Python, C, SQL -- MySQL).
+                \item Final project: data analysis \& modeling of astronomical dust extinction (\textbf{\textit{Python}}, \textbf{\textit{C}}, \textbf{\textit{SQL}} -- \textbf{\textit{MySQL}}).
             \end{highlights}
         \end{onecolentry}
-        \vspace{0.10 cm}
+        \vspace{0.20 cm}
 
         \begin{twocolentry}{
             2015 – 2017
         }
-            \textbf{A-Levels}, 4 A to B
+            \textbf{A-Levels}, 4 A to B.
         \end{twocolentry}
 
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Mathematics, Further Mathematics (A); Physics, Chemistry (B).
+            \end{highlights}
+        \end{onecolentry}
+
+        \vspace{0.20 cm}
         \begin{twocolentry}{
             2010 – 2015
         }
-            \textbf{GCSEs}, 11 A* to B
+            \textbf{GCSEs}, 11 A* to B.
         \end{twocolentry}
+        
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+            \item Mathematics, Computer Science, Physics (A*); Chemistry, Biology, English Language, English Literature, German, ICT, History (A); Religious Education (B).
+            \end{highlights}
+        \end{onecolentry}
 
 
     \section{Technical Skills}
@@ -275,7 +290,6 @@
             \textbf{Tools}: Git, pytest, emscripten, OpenGL/WebGL, Docker.
         \end{onecolentry}
 
-    \newpage
     \section{Projects \textit(Links provided)}
 
         \begin{twocolentry}{\href{https://github.com/harry-geyer/eese}{github.com/harry-geyer/eese}}
@@ -324,11 +338,11 @@
 
         \begin{onecolentry}
             \begin{highlights}
-                \item Conducted experiments and authored detailed scientific reports, ensuring complex results were communicated clearly to diverse audiences.
-                \item Fostered strong professional relationships with clients, delivering tailored embedded solutions that met project deadlines and budget constraints.
-                \item Served as a lead architect for the Devtank backend, designing and implementing scalable services that improved system performance by 30\%.
-                \item Developed comprehensive contingency plans for clients requiring zero downtime in services and production lines, successfully maintaining operational continuity during critical updates.
-                \item Automated multiple workflows for myself and colleagues, resulting in significant time savings of over 15 hours per week, allowing for more focus on critical project tasks.
+                \item \textbf{Creative problem solving} -- Applied creative problem-solving skills to develop innovative solutions for complex challenges, resulting in improved efficiency.
+                \item \textbf{Attention to detail} -- Exhibited strong attention to detail by meticulously reading and analysing technical documents and scientific papers (professionally and recreationally), ensuring accuracy and clarity in all interpretations and applications.
+                \item \textbf{Effictive communication} -- During my time at university, I took a module in \textit{Communicating Science}, having since used these skills to communicate effectively to specialist and non-specialists with presentations and literature. 
+                \item \textbf{Lateral thinking and self-critiquing} -- Utilised lateral thinking to redesign a service that reduced resource overheads by 75\%, while self-critiquing the process to identify areas for improvement and enhance future programming.
+                \item \textbf{Responsibility} -- Was lead point of contact for apprentice, overseeing work, supporting their learning.
             \end{highlights}
         \end{onecolentry}
 
@@ -336,6 +350,7 @@
 
         \begin{onecolentry}
             \begin{highlights}
+            \item Dual citizen (German \& UK), \textbf{right to work in Europe}.
                 \item Languages: English (native), German (intermediate).
                 \item Completed bronze, silver, and gold Duke of Edinburgh expeditions.
                 \item Full and clean UK driving license since 2017.
