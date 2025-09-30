@@ -1,0 +1,376 @@
+\documentclass[10pt, letterpaper]{article}
+
+\usepackage[
+    ignoreheadfoot,
+    top=1.75 cm,
+    bottom=1.75 cm,
+    left=2 cm,
+    right=2 cm,
+    footskip=1.0 cm,
+]{geometry}
+\usepackage{titlesec}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage[dvipsnames]{xcolor}
+\definecolor{primaryColor}{RGB}{0, 0, 0}
+\usepackage{enumitem}
+\usepackage{fontawesome5}
+\usepackage{amsmath}
+\usepackage[
+    pdftitle={Harry Geyers Lebenslauf},
+    pdfauthor={Harry Geyer},
+    pdfcreator={Harry Geyer},
+    colorlinks=true,
+    urlcolor=primaryColor
+]{hyperref}
+\usepackage[pscoord]{eso-pic}
+\usepackage{calc}
+\usepackage{bookmark}
+\usepackage{lastpage}
+\usepackage{changepage}
+\usepackage{paracol}
+\usepackage{ifthen}
+\usepackage{needspace}
+\usepackage{iftex}
+\usepackage[none]{hyphenat}
+\usepackage{ragged2e}
+
+\ifPDFTeX
+    \input{glyphtounicode}
+    \pdfgentounicode=1
+    \usepackage[T1]{fontenc}
+    \usepackage[utf8]{inputenc}
+    \usepackage{lmodern}
+\fi
+
+\usepackage{charter}
+
+\raggedright
+\AtBeginEnvironment{adjustwidth}{\partopsep0pt}
+\pagestyle{empty}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\topskip}{0pt}
+\setlength{\columnsep}{0.15cm}
+\pagenumbering{gobble}
+
+\titleformat{\section}{\needspace{4\baselineskip}\bfseries\large}{}{0pt}{}[\vspace{1pt}\titlerule]
+
+\titlespacing{\section}{-1pt}{0.3 cm}{0.2 cm}
+
+\renewcommand\labelitemi{$\vcenter{\hbox{\small$\bullet$}}$}
+\newenvironment{highlights}{
+    \begin{itemize}[
+        topsep=0.2 cm,
+        parsep=0.2 cm,
+        partopsep=0pt,
+        itemsep=0.025 cm,
+        leftmargin=0 cm + 10pt
+    ]
+}{
+    \end{itemize}
+}
+
+
+\newenvironment{highlightsforbulletentries}{
+    \begin{itemize}[
+        topsep=0.10 cm,
+        parsep=0.10 cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=10pt
+    ]
+}{
+    \end{itemize}
+}
+
+\newenvironment{onecolentry}{
+    \begin{adjustwidth}{
+        0 cm + 0.00001 cm
+    }{
+        0 cm + 0.00001 cm
+    }
+}{
+    \end{adjustwidth}
+}
+
+\newenvironment{twocolentry}[2][]{
+    \onecolentry
+    \def\secondColumn{#2}
+    \setcolumnwidth{\fill, 4.75 cm}
+    \begin{paracol}{2}
+}{
+    \switchcolumn \raggedleft \secondColumn
+    \end{paracol}
+    \endonecolentry
+}
+
+\newenvironment{threecolentry}[3][]{
+    \onecolentry
+    \def\thirdColumn{#3}
+    \setcolumnwidth{, \fill, 4.5 cm}
+    \begin{paracol}{3}
+    {\raggedright #2} \switchcolumn
+}{
+    \switchcolumn \raggedleft \thirdColumn
+    \end{paracol}
+    \endonecolentry
+}
+
+\newenvironment{header}{
+    \setlength{\topsep}{0pt}\par\kern\topsep\centering\linespread{1.5}
+}{
+    \par\kern\topsep
+}
+
+\newcommand{\placelastupdatedtext}{
+    \AddToShipoutPictureFG*{
+    \put(
+        \LenToUnit{\paperwidth-2 cm-0 cm+0.05cm},
+        \LenToUnit{\paperheight-1.0 cm}
+    ){\vtop{{\null}\makebox[0pt][c]{
+        \small\color{gray}\textit{Zuletzt aktualisiert im August 2025}\hspace{\widthof{Zuletzt aktualisiert im August 2025}}
+    }}}
+  }
+}
+
+\let\hrefWithoutArrow\href
+
+\begin{document}
+    \newcommand{\AND}{\unskip
+        \cleaders\copy\ANDbox\hskip\wd\ANDbox
+        \ignorespaces
+    }
+    \newsavebox\ANDbox
+    \sbox\ANDbox{$|$}
+
+    \begin{header}
+        \fontsize{25 pt}{25 pt}\selectfont Harry Geyer
+
+        \vspace{0.8 cm}
+
+        \normalsize
+        \mbox{Newcastle-under-Lyme, Staffordshire, UK}
+        \kern 5.0 pt
+        \AND
+        \kern 5.0 pt
+        \mbox{\hrefWithoutArrow{mailto:EMAIL_ADDRESS}{EMAIL_ADDRESS}}
+        \kern 5.0 pt
+        \AND
+        \kern 5.0 pt
+        \mbox{\hrefWithoutArrow{tel:PHONE_NUMBER_BASIC}{PHONE_NUMBER_NICE}}
+        \kern 5.0 pt
+        \AND
+        \kern 5.0 pt
+        \mbox{\hrefWithoutArrow{https://WEBSITE_URL/}{WEBSITE_URL}}
+        \kern 5.0 pt
+        \AND
+        \kern 5.0 pt
+        \mbox{\hrefWithoutArrow{https://linkedin.com/in/harry-geyer}{linkedin.com/in/harry-geyer}}
+        \kern 5.0 pt
+        \AND
+        \kern 5.0 pt
+        \mbox{\hrefWithoutArrow{https://github.com/harry-geyer}{github.com/harry-geyer}}
+    \end{header}
+
+    \vspace{0.8 cm}
+
+    \begin{adjustwidth}{1 cm}{1 cm}
+        \begin{it}
+        \justifying
+        \textbf{Embedded Systems Engineer} mit \textbf{5+ Jahren Erfahrung} in der Entwicklung von Echtzeit-Firmware und skalierbaren Backend-Systemen für industrielle IoT-Anwendungen.
+        Nachweisliche Erfolge in \textbf{Linux}-Kernel-Beiträgen, Leistungsoptimierung und kundenorientierter Lieferung.
+        \textbf{Recht auf Arbeit in der EU und im Vereinigten Königreich}, im Besitz gültiger deutscher und britischer Pässe.
+        \end{it}
+    \end{adjustwidth}
+
+    \vspace{0.5 cm}
+
+    \section{Erfahrung}
+        \begin{twocolentry}{
+            2022 – Gegenwart
+        }
+            \textbf{Firmware-Ingenieur}, Devtank Ltd. -- Derby, UK
+        \end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+            \item Alleiniger Firmware-Ingenieur verantwortlich für die eingebettete Entwicklung in Devtank’s \textbf{\textit{industrieller IoT}}-Produktlinie, die von mehreren Industrie-Kunden eingesetzt wird.
+            \item Entwurf und Implementierung von Echtzeit-Firmware auf \textbf{\textit{STM32}}/\textbf{\textit{ESP32 MCUs}}, Optimierung statistischer Berechnungen (Mittelwert, Varianz, Schiefe) zur Ausführung in <10 Taktzyklen, was eine hochfrequente Sensorverarbeitung ermöglicht.
+            \item Hochgeladenen Patch für den \textbf{\textit{Linux-Kernel}} I2C-Treiber, der die Funktionalität erweitert, die in Produktionshardware übernommen wurde.
+            \item Definierte eingebettete Architektur und überprüfte Codebasen auf Zuverlässigkeit, um 0 kritische Fehler in ausgelieferten Versionen sicherzustellen.
+            \item Zusammenarbeit mit Kunden vor Ort zur Fehlersuche und Integration von Hardware, wodurch die Bereitstellungszeit um 30\% reduziert wurde.
+            \end{highlights}
+        \end{onecolentry}
+
+
+        \vspace{0.2 cm}
+
+        \begin{twocolentry}{
+            2020 – 2022
+        }
+            \textbf{Software-Entwicklungsingenieur}, Devtank Ltd. -- Derby, UK
+        \end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Mitarchitekt von skalierbaren Backend-Diensten zur Überwachung/Verwaltung von IoT-Geräten, die 24/7 Betriebszeit für industrielle Kunden mit null Ausfallzeiten unterstützen.
+                \item Automatisierung interner Arbeitsabläufe mit \textbf{\textit{Python}} und \textbf{\textit{Bash}}, was ~5 Stunden/Woche manuellen Ingenieureinsatz spart.
+                \item Lieferung vertraglich vereinbarter technischer Berichte, die komplexe wissenschaftliche Ergebnisse erklären, maßgeschneidert für technische und nicht-technische Leser.
+                \item Direkte Zusammenarbeit mit Kunden, um Lösungen pünktlich und im Budgetrahmen zu liefern und gleichzeitig die Produktionskontinuität sicherzustellen.
+            \end{highlights}
+        \end{onecolentry}
+
+        \vspace{0.15 cm}
+
+    \section{Bildung}
+        \begin{twocolentry}{
+            2017 – 2020
+        }
+            \textbf{Universität Warwick}, B.Sc. (Hons) in Physik. 2.1, Zweite Klasse, obere Division.
+        \end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Module umfassen: Computational Physics, Scientific Computing, Fluiddynamik, elektrische Energieerzeugung.
+                \item Abschlussprojekt: Datenanalyse und Modellierung der astronomischen Staubabsorption (\textbf{\textit{Python}}, \textbf{\textit{C}}, \textbf{\textit{SQL}} -- \textbf{\textit{MySQL}}).
+            \end{highlights}
+        \end{onecolentry}
+        \vspace{0.20 cm}
+
+        \begin{twocolentry}{
+            2015 – 2017
+        }
+            \textbf{A-Levels}, 4 A bis B.
+        \end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Mathematik, Weitere Mathematik (A); Physik, Chemie (B).
+            \end{highlights}
+        \end{onecolentry}
+
+        \vspace{0.20 cm}
+        \begin{twocolentry}{
+            2010 – 2015
+        }
+            \textbf{GCSEs}, 11 A* bis B.
+        \end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+            \item Mathematik, Informatik, Physik (A*); Chemie, Biologie, Englisch Sprache, Englisch Literatur, Deutsch, ICT, Geschichte (A); Religionsunterricht (B).
+            \end{highlights}
+        \end{onecolentry}
+
+    \newpage
+
+    \section{Technische Fähigkeiten}
+
+        \begin{onecolentry}
+            \textbf{Sprachen}: C, C++, Python, SQL, Make, bash (fortgeschritten); Rust, JavaScript (ECMAScript), TypeScript, GLSL (kompetent).
+        \end{onecolentry}
+
+        \vspace{0.2 cm}
+
+        \begin{onecolentry}
+            \textbf{Embedded}: STM32, ESP32, libopencm3, ESP-IDF, I2C/SPI/UART, RTOS-Konzepte, Linux-Kernel-Treiberentwicklung, JTAG/GDB-Debugging.
+        \end{onecolentry}
+
+        \vspace{0.2 cm}
+
+        \begin{onecolentry}
+            \textbf{Software}: Flask, Django, PostgreSQL, MySQL, CI/CD-Pipelines.
+        \end{onecolentry}
+
+        \vspace{0.2 cm}
+
+        \begin{onecolentry}
+            \textbf{Werkzeuge}: Git, pytest, emscripten, OpenGL/WebGL, Docker, Jenkins.
+        \end{onecolentry}
+
+        \vspace{0.2 cm}
+
+        \begin{onecolentry}
+            \textbf{Konzepte}: Agile, SCRUM, CI/CD, Unit-Testing, Cloud-Computing.
+        \end{onecolentry}
+
+        \vspace{0.15 cm}
+
+    \section{Projekte \textit{(Links bereitgestellt)}}
+
+        \begin{twocolentry}{\href{https://github.com/harry-geyer/eese}{github.com/harry-geyer/eese}}
+            \textbf{Beispiel für einen eingebetteten Umweltsensor}
+        \end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            Firmware für IoT-Sensor (C, libopencm3, gdb, Python, pytest). Implementierung einer benutzerdefinierten Paketdetektion und Korruptionsidentifikation mit minimalem Overhead.
+        \end{onecolentry}
+
+        \vspace{0.2 cm}
+
+        \begin{twocolentry}{\href{https://github.com/harry-geyer/pgwb}{github.com/harry-geyer/pgwb}}
+            \textbf{Prozedural generierter Web-Hintergrund}
+        \end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            OpenGL/WebGL verwendet, um zufällig generierte Welten zu rendern, kompiliert zu WebAssembly (C, OpenGL, WebAssembly, emscripten, JavaScript, HTML, Make).
+        \end{onecolentry}
+
+        \vspace{0.2 cm}
+
+        \begin{twocolentry}{\href{https://github.com/harry-geyer/mfme}{github.com/harry-geyer/mfme}}
+            \textbf{Mini-Dateimanager-Endpunkt}
+        \end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            Leichtgewichtige Datei-Upload- und REST-API (C, mongoose).
+        \end{onecolentry}
+
+        \vspace{0.2 cm}
+
+        \begin{twocolentry}{\href{https://github.com/harry-geyer/cv}{github.com/harry-geyer/cv}}
+            \textbf{Lebenslauf}
+        \end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            Versionskontrollierter Lebenslauf für Reproduzierbarkeit (LaTeX, texlive, Make).
+        \end{onecolentry}
+
+        \vspace{0.15 cm}
+
+    \section{Soziale Fähigkeiten}
+
+        \begin{onecolentry}
+            \begin{highlights}
+                \item \textbf{Kreative Problemlösung} -- Kreative Problemlösungsfähigkeiten angewendet, um innovative Lösungen für komplexe Herausforderungen zu entwickeln, was zu einer verbesserten Effizienz führte.
+                \item \textbf{Aufmerksamkeit für Details} -- Starke Aufmerksamkeit für Details gezeigt, indem technische Dokumente und wissenschaftliche Arbeiten (beruflich und in der Freizeit) sorgfältig gelesen und analysiert wurden, um Genauigkeit und Klarheit in allen Interpretationen und Anwendungen sicherzustellen.
+                \item \textbf{Effektive Kommunikation} -- Während meiner Zeit an der Universität habe ich ein Modul in \textit{Wissenschaftskommunikation} belegt und diese Fähigkeiten seitdem genutzt, um effektiv an Spezialisten und Nicht-Spezialisten mit Präsentationen und Literatur zu kommunizieren.
+                \item \textbf{Laterales Denken und Selbstkritik} -- Laterales Denken genutzt, um einen Service neu zu gestalten, der die Ressourcenkosten um 75\% reduzierte, während ich den Prozess selbstkritisch überprüfte, um Verbesserungsmöglichkeiten zu identifizieren und zukünftige Programmierungen zu optimieren.
+                \item \textbf{Verantwortung} -- War Hauptansprechpartner für Auszubildende, überwachte deren Arbeit und unterstützte ihr Lernen.
+            \end{highlights}
+        \end{onecolentry}
+
+        \vspace{0.15 cm}
+
+    \section{Sonstiges}
+
+        \begin{onecolentry}
+            \begin{highlights}
+            \item Doppelstaatsbürger (Deutsch \& UK), \textbf{Recht auf Arbeit in Europa}.
+                \item Sprachen: Englisch (Muttersprache), Deutsch (mittel).
+                \item Abgeschlossene Bronze-, Silber- und Goldexpeditionen des Duke of Edinburgh.
+                \item Vollständiger und sauberer britischer Führerschein seit 2017.
+            \end{highlights}
+        \end{onecolentry}
+
+\end{document}

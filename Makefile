@@ -7,7 +7,7 @@ BUILD_DIR?=$(PROJECT_DIR)/build
 
 SOURCES:=$(shell find $(SOURCE_DIR) -type f)
 DEOBFS:=$(patsubst $(SOURCE_DIR)/%,$(BUILD_DIR)/%,$(SOURCES))
-OUTPUT:=$(BUILD_DIR)/$(PROJECT).pdf
+OUTPUT:=$(BUILD_DIR)/$(PROJECT).pdf $(BUILD_DIR)/$(PROJECT).de.pdf
 
 #Obfuscated addresses and numbers to hinder bot scrapers
 define TEXT_UNOBF
@@ -18,7 +18,7 @@ PHONE_NUMBER_NICE:=$(shell $(call TEXT_UNOBF,"U2FsdGVkX1+FZb0palwYIIy6xf2pYv7F4C
 EMAIL_ADDRESS:=$(shell $(call TEXT_UNOBF,"U2FsdGVkX1870KRIgPjCaaqTWef4WFhW60IqD5+/vOOXwwwrm9ZAsjnnXqXwO/4l"))
 WEBSITE_URL:=$(shell $(call TEXT_UNOBF,"U2FsdGVkX1/TN/9PTTO1rnzOrPZtDfTKqAzwyBzvr7LM4bKWUPMaaCGrp0DI7ovE"))
 
-default: $(BUILD_DIR)/$(PROJECT).pdf
+default: $(OUTPUT) 
 
 $(DEOBFS): $(BUILD_DIR)/%: $(SOURCE_DIR)/%
 	@mkdir -p $(@D)
@@ -28,9 +28,9 @@ $(DEOBFS): $(BUILD_DIR)/%: $(SOURCE_DIR)/%
 		-e 's|WEBSITE_URL|$(WEBSITE_URL)|g' \
 		$< > $@
 
-$(OUTPUT): $(DEOBFS)
+$(OUTPUT): $(BUILD_DIR)/%.pdf: $(BUILD_DIR)/%.tex
 	@mkdir -p $(@D)
-	pdflatex --output-directory=$(BUILD_DIR) --output-format=pdf $(BUILD_DIR)/$(PROJECT).tex
+	pdflatex --output-directory=$(BUILD_DIR) --output-format=pdf $<
 
 open: $(OUTPUT)
 	xdg-open $^
