@@ -28,9 +28,13 @@ $(DEOBFS): $(BUILD_DIR)/%: $(SOURCE_DIR)/%
 		-e 's|WEBSITE_URL|$(WEBSITE_URL)|g' \
 		$< > $@
 
-$(OUTPUT): $(BUILD_DIR)/%.pdf: $(BUILD_DIR)/%.tex
+$(BUILD_DIR)/cv.pdf: $(BUILD_DIR)/cv.tex
 	@mkdir -p $(@D)
-	pdflatex --output-directory=$(BUILD_DIR) --output-format=pdf $<
+	pdflatex -jobname=cv --output-directory=$(BUILD_DIR) --output-format=pdf $<
+
+$(BUILD_DIR)/cv.de.pdf: $(BUILD_DIR)/cv.tex
+	@mkdir -p $(@D)
+	pdflatex -jobname=cv.de --output-directory=$(BUILD_DIR) --output-format=pdf "\def\german{} \input{$<}"
 
 open: $(OUTPUT)
 	xdg-open $^
