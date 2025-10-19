@@ -2,12 +2,17 @@ PROJECT_DIR?=.
 
 PROJECT:=cv
 
+COMPILER:=lualatex
+
 SOURCE_DIR:=$(PROJECT_DIR)/src
 BUILD_DIR?=$(PROJECT_DIR)/build
 
+VERSION:=$(shell git describe --tag --abbrev=0)
+
 SOURCES:=$(shell find $(SOURCE_DIR) -type f)
 DEOBFS:=$(patsubst $(SOURCE_DIR)/%,$(BUILD_DIR)/%,$(SOURCES))
-OUTPUT:=$(BUILD_DIR)/$(PROJECT).pdf $(BUILD_DIR)/$(PROJECT).de.pdf
+OUTPUT_FMT:=$(PROJECT)_$(VERSION)
+OUTPUT:=$(BUILD_DIR)/$(OUTPUT_FMT).pdf $(BUILD_DIR)/$(OUTPUT_FMT).de.pdf
 
 #Obfuscated addresses and numbers to hinder bot scrapers
 define TEXT_UNOBF
@@ -28,13 +33,13 @@ $(DEOBFS): $(BUILD_DIR)/%: $(SOURCE_DIR)/%
 		-e 's|WEBSITE_URL|$(WEBSITE_URL)|g' \
 		$< > $@
 
-$(BUILD_DIR)/cv.pdf: $(BUILD_DIR)/cv.tex
+$(BUILD_DIR)/$(OUTPUT_FMT).pdf: $(BUILD_DIR)/cv.tex
 	@mkdir -p $(@D)
-	pdflatex -jobname=cv --output-directory=$(BUILD_DIR) --output-format=pdf $<
+	$(COMPILER) -jobname=$(OUTPUT_FMT) --output-directory=$(BUILD_DIR) --output-format=pdf $<
 
-$(BUILD_DIR)/cv.de.pdf: $(BUILD_DIR)/cv.tex
+$(BUILD_DIR)/$(OUTPUT_FMT).de.pdf: $(BUILD_DIR)/cv.tex
 	@mkdir -p $(@D)
-	pdflatex -jobname=cv.de --output-directory=$(BUILD_DIR) --output-format=pdf "\def\german{} \input{$<}"
+	$(COMPILER) -jobname=$(OUTPUT_FMT).de --output-directory=$(BUILD_DIR) --output-format=pdf "\def\german{} \input{$<}"
 
 open: $(OUTPUT)
 	xdg-open $^
