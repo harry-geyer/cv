@@ -31,6 +31,8 @@
     pdftitle={Harry Geyer's CV},
     pdfpagemode=FullScreen,
     }
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
 
 \name{Harry}{Geyer}
 \address{Staffordshire}{United Kingdom}
@@ -46,16 +48,7 @@
 \begin{document}
 \makecvtitle
 
-\section{Education}
-    \cventry{2017--2020}{B.Sc (Hons) in Physics}{University of Warwick}{\textit{2.1, Second Class, Upper Division.}}{}{Modules include: computational physics, scientific computing, fluid dynamics, electrical power generation.}
-    \cventry{2015-2017}{A-Levels}{}{\textit{4 A to B.}}{}{Mathematics, Futher Mathematics (A); Physics, Chemistry (B).}
-    \cventry{2010-2015}{GCSEs}{}{\textit{11 A* to B.}}{}{Mathematics, Computer Science, Physics (A*); Chemistry, Biology, English Language, English Literature, German, ICT, History (A); Religious Education (B).}
-
-\section{Final Project}
-\cvitem{Title}{\emph{Electromagnetic Extinction through Intergalactic Dust on Radiation from Starburst Galaxies}}
-\cvitem{Supervisors}{Professor Elizabeth Stanway}
-%\cvitem{Description}{Short thesis abstract}
-\cvitem{Technologies}{Python, C, MySQL, Data Modelling.}
+\vspace{-7.5mm}
 
 \section{Experience}
     \cventry{2022--Present}{Firmware Engineer}{Devtank Ltd.}{Derby}{}{
@@ -73,56 +66,97 @@
         \item Collaborated directly with clients, delivering solutions on-time and on-budget while ensuring production continuity.
     \end{itemize}}
 
-\section{Languages}
-\cvitemwithcomment{English}{Native}{}
-\cvitemwithcomment{German}{Intermediate}{}
-
 %\section{Computer skills}
 %\cvdoubleitem{category 1}{XXX, YYY, ZZZ}{category 4}{XXX, YYY, ZZZ}
 %\cvdoubleitem{category 2}{XXX, YYY, ZZZ}{category 5}{XXX, YYY, ZZZ}
 %\cvdoubleitem{category 3}{XXX, YYY, ZZZ}{category 6}{XXX, YYY, ZZZ}
 %\cvtripleitem{category 4}{XYZ}{category 5}{XYZ}{category 6}{XYZ}
 
+\vspace{-3mm}
+
 \section{Skill matrix}
 \cvskillhead[-0.1em]
 \cvskillentry*{Language:}{5}{C}{8}{In embedded, data processing, application and service environments.}
 \cvskillentry{}{5}{Python}{12}{Started in school, used throughout education and into professional life.}
 \cvskillentry{}{2}{C++}{3}{Various professional projects, including C++23.}
-\cvskillentry{}{4}{SQL}{6}{Database structure design, and use.}
 \cvskillentry{}{4}{\LaTeX}{8}{Writing scientific reports or customer manuals.}
-\cvskillentry{}{3}{bash}{7}{Creating shell scripts, for automation.}
 \cvskillentry{}{2}{Rust}{1}{Simple projects with compiled, memory safe requirements.}
+\ifdefined\software
+\cvskillentry{}{3}{bash}{7}{Creating shell scripts, for automation.}
+\cvskillentry{}{4}{SQL}{6}{Database structure design, and use.}
 \cvskillentry{}{2}{JavaScript (ECMAScript)}{1}{Designed platform agnostic, web-based applications.}
 \cvskillentry{}{2}{TypeScript}{1}{Various web-served applications.}
 \cvskillentry{}{2}{GLSL}{1}{Used OpenGL or WebGL to render graphical displays efficiently.}
-\cvskillentry*{OS:}{4}{Linux}{7}{Embedded and cloud. Worked with Buildroot and Yocto. Daily drive Debian and Arch.}
-\cvskillentry*{Embedded:}{4}{STM32}{4}{Developed IoT sensors, and motherboard onboard expansion devices with libopencm3.}
-\cvskillentry{}{3}{ESP32}{2}{Web-hosting IoT sensors and wireless communication expansion cards.}
-\cvskillentry{}{2}{RP2350/RP2040}{4}{Raspberry Pi microcontrollers developed into test equipment for mass PCB production lines.}
+\fi
+\cvskillentry*{OS:}{4}{Linux}{7}{Embedded and cloud. Worked with Buildroot and Yocto. Daily drive Debian and Arch. Upstreamed fix (in >= Linux 6.6).}
+\ifdefined\embedded
+\cvskillentry*{Embedded:}{4}{STM32, ESP32, RP2360/RP2040}{4}{Developed web-hosting IoT sensors, and motherboard onboard expansion devices with libopencm3.}
 \cvskillentry{}{2}{RTOS}{2}{Used real time operating systems with pico-sdk, ESP-IDF and Zephyr.}
-\cvskillentry{}{4}{Low-level Communications}{6}{Developed with I2C/SPI/UART.}
-\cvskillentry{}{3}{Linux Kernel}{2}{Created and maintained linux kernel modules, including an upstreamed fix (in >= Linux 6.6).}
-\cvskillentry*{Software}{3}{Flask \& Django}{3}{Client-facing, web-based solutions.}
-\cvskillentry{}{4}{Databases}{6}{Using SQL and ORM to interface with various SQL databases, including MySQL (MariaDB) and PostgreSQL.}
-\cvskillentry{}{4}{CI/CD Pipeline}{6}{Setup and used pipelines, for safe and effective continuous deployment.}
+\cvskillentry{}{4}{Low-level Communications}{6}{Developed with I2C/SPI/UART and higher level(CAN/RS232/RS485/Ethernet).}
+\cvskillentry{}{3}{Linux Kernel}{2}{Created and maintained linux kernel modules.}
+\fi
+%\ifdefined\software
+%\cvskillentry*{Software}{3}{Flask \& Django}{3}{Client-facing, web-based solutions.}
+%\cvskillentry{}{4}{Databases}{6}{Using SQL and ORM to interface with various SQL databases, including MySQL (MariaDB) and PostgreSQL.}
+%\cvskillentry{}{4}{CI/CD Pipeline}{6}{Setup and used pipelines, for safe and effective continuous deployment.}
+%\fi
 \cvskillentry*{Tools}{5}{git}{7}{Maintained and contributed towards complex version control histories, with knowledge how to manipulate histories.}
+\ifdefined\software
 \cvskillentry{}{3}{Jenkins}{4}{Used, and set up, Jenkins as part of CI/CD pipelines.}
-\cvskillentry{}{2}{Docker \& lxc}{3}{Utilised to create containterised environments for modular and scalable solutions.}
+\cvskillentry{}{2}{Docker \& LXC}{3}{Utilised to create containterised environments for modular and scalable solutions.}
 \cvskillentry{}{2}{OpenGL \& WebGL}{1}{Render graphics with hardware acceleration, natively and through the browser.}
-\cvskillentry*{Concepts}{3}{Unit Tests}{5}{Created unit tests for software to reduce issues when in production, including using pytest.}
-\cvskillentry{}{2}{Cloud Computing}{2}{Setup and used comerically sourced servers for client facing services.}
-\cvskillentry{}{4}{Agile}{5}{Solutions and projects were developed in an iteratative process to keep product and client expectations aligned.}
-\cvskillentry{}{3}{SCRUM}{3}{Used the SCRUM framework for setting identifiable deliverables.}
+%\cvskillentry*{Concepts}{3}{Unit Tests}{5}{Created unit tests for software to reduce issues when in production, including using pytest.}
+%\cvskillentry{}{2}{Cloud Computing}{2}{Setup and used comerically sourced servers for client facing services.}
+%\cvskillentry{}{4}{Agile}{5}{Solutions and projects were developed in an iteratative process to keep product and client expectations aligned.}
+%\cvskillentry{}{3}{SCRUM}{3}{Used the SCRUM framework for setting identifiable deliverables.}
+\begin{cvcolumns}
+    \cvcolumn{Software}{
+    \begin{itemize}
+        \item Flask, Django \& fastAPI
+        \item Databases: MySQL, PostgreSQL, time-series.
+        \item CI/CD
+    \end{itemize}}
+    \cvcolumn{Concepts}{
+    \begin{itemize}
+        \item Cloud-computing
+        \item Agile
+        \item Scrum
+    \end{itemize}}
+\end{cvcolumns}
+\fi
 
-\section{Interests}
-\cvitem{Board games}{Modern board games require cunning and strategy.}
-\cvitem{Reading}{From scientific papers and technical documents to fantasy and science fiction, I enjoy reading as an escape and way of learning.}
-\cvitem{Skiing \& snowboarding}{High energy, physical excercise in beautiful scenary.}
-\cvitem{Swimming}{Full body exercise with measurable individual improvement.}
-\cvitem{Climbing/\newline bouldering}{Where problem solving meets strength and dexterity.}
-\cvitem{Photography}{Capturing interesting and beautiful landscapes.}
-\cvitem{Astronomy}{Using a Newtonian reflecting telescope and a DSLR to capture planets and nebulae.}
-\cvitem{Hiking}{Exploring nature, particularly mountains on foot.}
+\vspace{-4mm}
+
+\section{Education}
+    \cventry{2017--2020}{B.Sc (Hons) in Physics}{University of Warwick}{\textit{2.1, Second Class, Upper Division.}}{}{Modules include: computational physics, scientific computing, fluid dynamics, electrical power generation.}
+    \cventry{2015-2017}{A-Levels}{}{\textit{4 A to B.}}{}{}%{Mathematics, Futher Mathematics (A); Physics, Chemistry (B).}
+    \cventry{2010-2015}{GCSEs}{}{\textit{11 A* to B.}}{}{}%{Mathematics, Computer Science, Physics (A*); Chemistry, Biology, English Language, English Literature, German, ICT, History (A); Religious Education (B).}
+
+\ifdefined\embedded
+\newpage
+\vspace*{6mm}
+\fi
+
+\section{Final Project}
+\cvitem{Title}{\emph{Electromagnetic Extinction through Intergalactic Dust on Radiation from Starburst Galaxies}}
+\cvitem{Supervisors}{Professor Elizabeth Stanway}
+%\cvitem{Description}{Short thesis abstract}
+\cvitem{Technologies}{Python, C, MySQL, Data Modelling.}
+
+\section{Projects}
+\cvitem{My CV}{\href{https://github.com/harry-geyer/cv}{\textit{github.com/harry-geyer/cv}}\newline Written in \LaTeX for version control and customisability.}
+\ifdefined\embedded
+\cvitem{eese}{\href{https://github.com/harry-geyer/eese}{\textit{github.com/harry-geyer/eese}}\newline Embedded `baremetal' firmware, written in C, for an STM32F07 microprocessor and an Python API.}
+\fi
+\ifdefined\software
+\cvitem{mfme}{\href{https://github.com/harry-geyer/mfme}{\textit{github.com/harry-geyer/mfme}}\newline C based webserver with mongoose, for handling file uploads.}
+\fi
+\cvitem{mqtt2psql}{\href{https://github.com/harry-geyer/mqtt2psql}{\textit{github.com/harry-geyer/mqtt2psql}}\newline A C++ project for listening to an MQTT broker for IoT sensors and inserting into a PostgreSQL database.}
+\ifdefined\software
+\cvitem{netlb}{\href{https://github.com/harry-geyer/netlb}{\textit{github.com/harry-geyer/netlb}}\newline Leaderboard webserver written in Python.}
+\cvitem{pgwb}{\href{https://github.com/harry-geyer/pgwb}{\textit{github.com/harry-geyer/pgwb}}\newline Using WebGL, GLSL shaders, and emscripten to generate 2D procedural worlds in a browser.}
+\fi
+\cvitem{web-host-mcu}{\href{https://github.com/harry-geyer/web-host-mcu}{\textit{github.com/harry-geyer/web-host-mcu}}\newline Firmware for the RP2350, including sensor and a self-hosted configuration page, with access point, DHCP and TCP/HTTP server and a lwip REST API.}
 
 \section{Soft Skills}
 \cvitem{Creative problem solving}{Applied creative problem-solving skills to develop innovative solutions for complex challenges, resulting in improved efficiency.}
@@ -131,20 +165,27 @@
 \cvitem{Lateral thinking and self-critiquing}{Utilised lateral thinking to redesign a service that reduced resource overheads by 75\%, while self-critiquing the process to identify areas for improvement and enhance future programming.}
 \cvitem{Responsibility}{Was lead point of contact for apprentice, overseeing work, supporting their learning.}
 
+\section{Interests}
+\cvlistdoubleitem{Reading}{Hiking}
+\cvlistdoubleitem{Board games}{Skiing \& snowboarding}
+\cvlistdoubleitem{Photography}{Swimming}
+\cvlistdoubleitem{Astronomy}{Climbing \& bouldering}
+% \cvitem{Board games}{Modern board games require cunning and strategy.}
+% \cvitem{Reading}{From scientific papers and technical documents to fantasy and science fiction, I enjoy reading as an escape and way of learning.}
+% \cvitem{Skiing \& snowboarding}{High energy, physical excercise in beautiful scenary.}
+% \cvitem{Swimming}{Full body exercise with measurable individual improvement.}
+% \cvitem{Climbing \& bouldering}{Where problem solving meets strength and dexterity.}
+% \cvitem{Photography}{Capturing interesting and beautiful landscapes.}
+% \cvitem{Astronomy}{Using a Newtonian reflecting telescope and a DSLR to capture planets and nebulae.}
+% \cvitem{Hiking}{Exploring nature, particularly mountains on foot.}
+
 \section{Other}
 \cvlistitem{Dual citizen (German \& UK), with a right to work in Europe.}
+\cvlistitem{Languages: English(Native), German(Intermediate).}
 \cvlistitem{Full and clean UK driving license.}
 \cvlistitem{Completed bronze, silver and gold Duke of Edinburgh Award expeditions.}
 
-\section{Projects}
-\cvitem{My CV}{\href{https://github.com/harry-geyer/cv}{\textit{github.com/harry-geyer/cv}}\newline Written in \LaTeX for version control and customisability.}
-\cvitem{eese}{\href{https://github.com/harry-geyer/eese}{\textit{github.com/harry-geyer/eese}}\newline Embedded `baremetal' firmware, written in C, for an STM32F07 microprocessor and an Python API.}
-\cvitem{mfme}{\href{https://github.com/harry-geyer/mfme}{\textit{github.com/harry-geyer/mfme}}\newline C based webserver with mongoose, for handling file uploads.}
-\cvitem{mqtt2psql}{\href{https://github.com/harry-geyer/mqtt2psql}{\textit{github.com/harry-geyer/mqtt2psql}}\newline A C++ project for listening to an MQTT broker for IoT sensors and inserting into a PostgreSQL database.}
-\cvitem{netlb}{\href{https://github.com/harry-geyer/netlb}{\textit{github.com/harry-geyer/netlb}}\newline Leaderboard webserver written in Python.}
-\cvitem{pgwb}{\href{https://github.com/harry-geyer/pgwb}{\textit{github.com/harry-geyer/pgwb}}\newline Using WebGL, GLSL shaders, and emscripten to generate 2D procedural worlds in a browser.}
-\cvitem{web-host-mcu}{\href{https://github.com/harry-geyer/web-host-mcu}{\textit{github.com/harry-geyer/web-host-mcu}}\newline Firmware for the RP2350, including sensor and a self-hosted configuration page, with access point, DHCP and TCP/HTTP server and a lwip REST API.}
-
+\ifdefined\embedded
 \section{References}
 \begin{cvcolumns}
   \cvcolumn{Devtank Ltd.}{More available on request
@@ -163,5 +204,6 @@
       \item Rob Garland,\newline\textbf{Character witness}.
     \end{itemize}}
 \end{cvcolumns}
+\fi
 \end{document}
 
