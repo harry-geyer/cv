@@ -1,502 +1,299 @@
-\documentclass[10pt, letterpaper]{article}
+\documentclass[11pt,a4paper,sans]{moderncv}
 
-\usepackage[
-    ignoreheadfoot,
-    top=1.75 cm,
-    bottom=1.75 cm,
-    left=2 cm,
-    right=2 cm,
-    footskip=1.0 cm,
-]{geometry}
-\usepackage{titlesec}
-\usepackage{tabularx}
-\usepackage{array}
-\usepackage[dvipsnames]{xcolor}
-\definecolor{primaryColor}{RGB}{0, 0, 0}
-\usepackage{enumitem}
-\usepackage{fontawesome5}
-\usepackage{amsmath}
-\usepackage[
-    pdftitle={Harry Geyer's CV},
-    pdfauthor={Harry Geyer},
-    pdfcreator={Harry Geyer},
-    colorlinks=true,
-    urlcolor=primaryColor
-]{hyperref}
-\usepackage[pscoord]{eso-pic}
-\usepackage{calc}
-\usepackage{bookmark}
-\usepackage{lastpage}
-\usepackage{changepage}
-\usepackage{paracol}
-\usepackage{ifthen}
-\usepackage{needspace}
-\usepackage{iftex}
-\usepackage[none]{hyphenat}
-\usepackage{ragged2e}
+\moderncvcolor{cerulean}                           % color options 'black', 'blue' (default), 'burgundy', 'green', 'grey', 'orange', 'purple' and 'red'; for contemporary style use 'cerulean'
+\moderncvstyle[]{contemporary}
 
-\ifPDFTeX
-    \input{glyphtounicode}
-    \pdfgentounicode=1
-    \usepackage[T1]{fontenc}
-    \usepackage[utf8]{inputenc}
-    \usepackage{lmodern}
+\usepackage[hmargin=0.5in,vmargin=10pt]{geometry} 
+\ifxetexorluatex
+  \usepackage{fontspec}
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Ligatures=TeX}
+  \setmainfont{Latin Modern Roman}
+  \setsansfont{Latin Modern Sans}
+  \setmonofont{Latin Modern Mono}
+  \setmathfont{Latin Modern Math}
+
+\else
+  \usepackage[utf8]{inputenc}
+  \usepackage[T1]{fontenc}
+  \usepackage{lmodern}
 \fi
 
-\usepackage{charter}
-\usepackage{standalone}
+\usepackage{hyperref}
 
-\raggedright
-\AtBeginEnvironment{adjustwidth}{\partopsep0pt}
-\pagestyle{empty}
-\setcounter{secnumdepth}{0}
-\setlength{\parindent}{0pt}
-\setlength{\topskip}{0pt}
-\setlength{\columnsep}{0.15cm}
-\pagenumbering{gobble}
+\usepackage[english]{babel}
 
-\titleformat{\section}{\needspace{4\baselineskip}\bfseries\large}{}{0pt}{}[\vspace{1pt}\titlerule]
-
-\titlespacing{\section}{-1pt}{0.3 cm}{0.2 cm}
-
-\renewcommand\labelitemi{$\vcenter{\hbox{\small$\bullet$}}$}
-\newenvironment{highlights}{
-    \begin{itemize}[
-        topsep=0.2 cm,
-        parsep=0.2 cm,
-        partopsep=0pt,
-        itemsep=0.025 cm,
-        leftmargin=0 cm + 10pt
-    ]
-}{
-    \end{itemize}
-}
-
-
-\newenvironment{highlightsforbulletentries}{
-    \begin{itemize}[
-        topsep=0.10 cm,
-        parsep=0.10 cm,
-        partopsep=0pt,
-        itemsep=0pt,
-        leftmargin=10pt
-    ]
-}{
-    \end{itemize}
-}
-
-\newenvironment{onecolentry}{
-    \begin{adjustwidth}{
-        0 cm + 0.00001 cm
-    }{
-        0 cm + 0.00001 cm
+\hypersetup{
+    colorlinks=false,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle={Harry Geyer's CV},
+    pdfpagemode=FullScreen,
     }
-}{
-    \end{adjustwidth}
-}
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
 
-\newenvironment{twocolentry}[2][]{
-    \onecolentry
-    \def\secondColumn{#2}
-    \setcolumnwidth{\fill, 4.75 cm}
-    \begin{paracol}{2}
-}{
-    \switchcolumn \raggedleft \secondColumn
-    \end{paracol}
-    \endonecolentry
-}
+\name{Harry}{Geyer}
+\address{Staffordshire}{United Kingdom}
+\phone[mobile]{PHONE_NUMBER_NICE}
+\email{EMAIL_ADDRESS}
+\homepage{WEBSITE_URL}
+\social[linkedin]{harry-geyer}
+\social[github]{harry-geyer}
+\extrainfo{Right to work in EU and UK.\newline} 
+\photo[64pt][2pt]{images/photo.png}
 
-\newenvironment{threecolentry}[3][]{
-    \onecolentry
-    \def\thirdColumn{#3}
-    \setcolumnwidth{, \fill, 4.5 cm}
-    \begin{paracol}{3}
-    {\raggedright #2} \switchcolumn
-}{
-    \switchcolumn \raggedleft \thirdColumn
-    \end{paracol}
-    \endonecolentry
-}
+\renewcommand*{\bibliographyitemlabel}{[\arabic{enumiv}]}
 
-\newenvironment{header}{
-    \setlength{\topsep}{0pt}\par\kern\topsep\centering\linespread{1.5}
-}{
-    \par\kern\topsep
-}
-
-\newcommand{\placelastupdatedtext}{
-    \AddToShipoutPictureFG*{
-    \put(
-        \LenToUnit{\paperwidth-2 cm-0 cm+0.05cm},
-        \LenToUnit{\paperheight-1.0 cm}
-    ){\vtop{{\null}\makebox[0pt][c]{
-        \ifdefined\german
-        \small\color{gray}\textit{Zuletzt aktualisiert im August 2025}\hspace{\widthof{Zuletzt aktualisiert im August 2025}}
-        \else
-        \small\color{gray}\textit{Last updated in October 2025}\hspace{\widthof{Last updated in October 2025}}
-        \fi
-    }}}
-  }
-}
-
-\let\hrefWithoutArrow\href
+\ifdefined\german
+\newcommand{\sectExperience}{Berufserfahrung}
+\newcommand{\sectSkillMatrix}{Fähigkeiten}
+\newcommand{\sectEducation}{Ausbildung}
+\newcommand{\sectFinalProject}{Abschlussarbeit}
+\newcommand{\sectProjects}{Projekte}
+\newcommand{\sectSoftSkills}{Soziale Kompetenzen}
+\newcommand{\sectInterests}{Interessen}
+\newcommand{\sectOther}{Sonstiges}
+\newcommand{\sectReferences}{Referenzen}
+\else
+\newcommand{\sectExperience}{Experience}
+\newcommand{\sectSkillMatrix}{Skill matrix}
+\newcommand{\sectEducation}{Education}
+\newcommand{\sectFinalProject}{Final Project}
+\newcommand{\sectProjects}{Projects}
+\newcommand{\sectSoftSkills}{Soft Skills}
+\newcommand{\sectInterests}{Interests}
+\newcommand{\sectOther}{Other}
+\newcommand{\sectReferences}{References}
+\fi
 
 \begin{document}
-    \newcommand{\AND}{\unskip
-        \cleaders\copy\ANDbox\hskip\wd\ANDbox
-        \ignorespaces
-    }
-    \newsavebox\ANDbox
-    \sbox\ANDbox{$|$}
+\makecvtitle
 
-    \begin{header}
-        \fontsize{25 pt}{25 pt}\selectfont Harry Geyer
+\vspace{-7.5mm}
 
-        \vspace{0.8 cm}
+\section{\sectExperience}
+\cventry{2022--Present}{Firmware Engineer}{Devtank Ltd.}{Derby}{}{
+\begin{itemize}
+\ifdefined\german
+    \item Entwicklung und Implementierung von Echtzeit-Firmware auf \textbf{\textit{STM32}}/\textbf{\textit{ESP32 MCUs}}, Optimierung statistischer Berechnungen (Mittelwert, Varianz, Schiefe) auf <10 Taktzyklen, zur Hochfrequenz-Sensorverarbeitung.
+    \item Beitrag zum \textbf{\textit{Linux Kernel}} I2C-Treiber, Funktionalität wurde in Produktionshardware übernommen.
+    \item Definition der Embedded-Architektur und Überprüfung des Codes auf Zuverlässigkeit, wodurch 0 kritische Fehler in ausgelieferten Releases erzielt wurden.
+    \item Zusammenarbeit mit Kunden vor Ort zur Fehlersuche und Hardwareintegration, Reduktion der Einsatzzeit um 30\%.
+\else
+    \item Designed and implemented real-time firmware on \textbf{\textit{STM32}}/\textbf{\textit{ESP32 MCUs}}, optimising statistical calculations (mean, variance, skew) to run in <10 clock cycles, enabling high-frequency sensor processing.
+    \item Upstreamed patch to the \textbf{\textit{Linux kernel}} I2C driver, expanding functionality adopted in production hardware.
+    \item Defined embedded architecture and reviewed codebases for reliability, ensuring 0 critical defects in shipped releases.
+    \item Partnered with customers on-site to debug and integrate hardware, reducing deployment time by 30\%.
+\fi
+\end{itemize}}
+\cventry{2020--2022}{Software Development Engineer}{Devtank Ltd.}{Derby}{}{
+\begin{itemize}
+\ifdefined\german
+    \item Mitentwicklung skalierbarer Backend-Dienste für die Überwachung/Verwaltung von IoT-Geräten, 24/7 Betrieb für Industrie-Kunden ohne Ausfallzeiten.
+    \item Automatisierung interner Workflows mit \textbf{\textit{Python}} und \textbf{\textit{Bash}}, Einsparung von ~5 Stunden/Woche manueller Arbeit.
+    \item Erstellung technischer Berichte für Auftraggeber, verständlich für technische und nicht-technische Leser.
+    \item Direkte Zusammenarbeit mit Kunden, termingerechte und budgetgerechte Lieferung bei gleichzeitiger Produktionskontinuität.
+\else
+    \item Co-architected scalable backend services for monitoring/managing IoT devices, supporting 24/7 uptime for industrial clients with zero downtime tolerance.
+    \item Automated internal workflows with \textbf{\textit{Python}} and \textbf{\textit{Bash}}, saving ~5 hours/week of manual engineering effort.
+    \item Delivered contracted technical reports explaining complex scientific results, tailored for both technical and non-technical readers.
+    \item Collaborated directly with clients, delivering solutions on-time and on-budget while ensuring production continuity.
+\fi
+\end{itemize}}
 
-        \normalsize
-        \mbox{Newcastle-under-Lyme, Staffordshire, UK}
-        \kern 5.0 pt
-        \AND
-        \kern 5.0 pt
-        \mbox{\hrefWithoutArrow{mailto:EMAIL_ADDRESS}{EMAIL_ADDRESS}}
-        \kern 5.0 pt
-        \AND
-        \kern 5.0 pt
-        \mbox{\hrefWithoutArrow{tel:PHONE_NUMBER_BASIC}{PHONE_NUMBER_NICE}}
-        \kern 5.0 pt
-        \AND
-        \kern 5.0 pt
-        \mbox{\hrefWithoutArrow{https://WEBSITE_URL/}{WEBSITE_URL}}
-        \kern 5.0 pt
-        \AND
-        \kern 5.0 pt
-        \mbox{\hrefWithoutArrow{https://linkedin.com/in/harry-geyer}{linkedin.com/in/harry-geyer}}
-        \kern 5.0 pt
-        \AND
-        \kern 5.0 pt
-        \mbox{\hrefWithoutArrow{https://github.com/harry-geyer}{github.com/harry-geyer}}
-    \end{header}
+%\section{Computer skills}
+%\cvdoubleitem{category 1}{XXX, YYY, ZZZ}{category 4}{XXX, YYY, ZZZ}
+%\cvdoubleitem{category 2}{XXX, YYY, ZZZ}{category 5}{XXX, YYY, ZZZ}
+%\cvdoubleitem{category 3}{XXX, YYY, ZZZ}{category 6}{XXX, YYY, ZZZ}
+%\cvtripleitem{category 4}{XYZ}{category 5}{XYZ}{category 6}{XYZ}
 
-    \vspace{0.8 cm}
+\vspace{-3mm}
 
-    \begin{adjustwidth}{1 cm}{1 cm}
-        \begin{it}
-        \justifying
-        \ifdefined\german
-        \textbf{Embedded Systems Engineer} mit \textbf{5+ Jahren Erfahrung} in der Entwicklung von Echtzeit-Firmware und skalierbaren Backend-Systemen für industrielle IoT-Anwendungen.
-        Nachweisliche Erfolge in \textbf{Linux}-Kernel-Beiträgen, Leistungsoptimierung und kundenorientierter Lieferung.
-        \textbf{Recht auf Arbeit in der EU und im Vereinigten Königreich}, im Besitz gültiger deutscher und britischer Pässe.
-        \else
-        \textbf{Embedded Systems Engineer} with \textbf{5+ years of experiance} designing real-time firmware and scalable backend systems for industrial IoT applications.
-        Proven track record in \textbf{Linux} kernel contributions, performance optimisation and client-facing delivery.
-        \textbf{Right to work in EU and UK}, holding valid German and UK passports.
-        \fi
-        \end{it}
-    \end{adjustwidth}
+\section{\sectSkillMatrix}
+\cvskillhead[-0.1em]
 
-    \vspace{0.5 cm}
+\ifdefined\german
+\cvskillentry*{Sprachen:}{5}{C}{8}{Eingesetzt in Embedded-, Datenverarbeitungs-, Anwendungs- und Serviceumgebungen.}
+\cvskillentry{}{5}{Python}{12}{Seit der Schulzeit verwendet, in Ausbildung und Beruf fortgeführt.}
+\cvskillentry{}{2}{C++}{3}{Verschiedene professionelle Projekte, einschließlich C++23.}
+\cvskillentry{}{4}{\LaTeX}{8}{Schreiben wissenschaftlicher Berichte und Kundenhandbücher.}
+\cvskillentry{}{2}{Rust}{1}{Einfache Projekte mit kompilierten, speichersicheren Anforderungen.}
+\cvskillentry*{Betriebssystem:}{4}{Linux}{7}{Embedded- und Cloud-Umgebungen. Erfahrung mit Buildroot und Yocto. Täglicher Einsatz von Debian und Arch. Fehlerbehebung in >= Linux 6.6.}
+\else
+\cvskillentry*{Language:}{5}{C}{8}{In embedded, data processing, application and service environments.}
+\cvskillentry{}{5}{Python}{12}{Started in school, used throughout education and into professional life.}
+\cvskillentry{}{2}{C++}{3}{Various professional projects, including C++23.}
+\cvskillentry{}{4}{\LaTeX}{8}{Writing scientific reports or customer manuals.}
+\cvskillentry{}{2}{Rust}{1}{Simple projects with compiled, memory safe requirements.}
+\cvskillentry*{OS:}{4}{Linux}{7}{Embedded and cloud. Worked with Buildroot and Yocto. Daily drive Debian and Arch. Upstreamed fix (in >= Linux 6.6).}
+\fi
 
-    \ifdefined\german
-    \section{Erfahrung}
-        \begin{twocolentry}{
-            2022 – Gegenwart
-        }
-            \textbf{Firmware Engineer}, Devtank Ltd. -- Derby, UK
-        \end{twocolentry}
-    \else
-    \section{Experience}
-        \begin{twocolentry}{
-            2022 – Present
-        }
-            \textbf{Firmware Engineer}, Devtank Ltd. -- Derby, UK
-        \end{twocolentry}
-    \fi
-        \vspace{0.10 cm}
-        \begin{onecolentry}
-            \begin{highlights}
-            \ifdefined\german
-            \item Alleiniger Firmware-Ingenieur verantwortlich für die eingebettete Entwicklung in Devtank’s \textbf{\textit{industrieller IoT}}-Produktlinie, die von mehreren Industrie-Kunden eingesetzt wird.
-            \item Entwurf und Implementierung von Echtzeit-Firmware auf \textbf{\textit{STM32}}/\textbf{\textit{ESP32 MCUs}}, Optimierung statistischer Berechnungen (Mittelwert, Varianz, Schiefe) zur Ausführung in <10 Taktzyklen, was eine hochfrequente Sensorverarbeitung ermöglicht.
-            \item Hochgeladenen Patch für den \textbf{\textit{Linux-Kernel}} I2C-Treiber, der die Funktionalität erweitert, die in Produktionshardware übernommen wurde.
-            \item Definierte eingebettete Architektur und überprüfte Codebasen auf Zuverlässigkeit, um 0 kritische Fehler in ausgelieferten Versionen sicherzustellen.
-            \item Zusammenarbeit mit Kunden vor Ort zur Fehlersuche und Integration von Hardware, wodurch die Bereitstellungszeit um 30\% reduziert wurde.
-            \else
-            \item Sole firmware engineer responsible for embedded development across Devtank’s \textbf{\textit{industrial IoT}} product line, deployed by multiple industrial clients.
-            \item Designed and implemented real-time firmware on \textbf{\textit{STM32}}/\textbf{\textit{ESP32 MCUs}}, optimising statistical calculations (mean, variance, skew) to run in <10 clock cycles, enabling high-frequency sensor processing.
-            \item Upstreamed patch to the \textbf{\textit{Linux kernel}} I2C driver, expanding functionality adopted in production hardware.
-                \item Defined embedded architecture and reviewed codebases for reliability, ensuring 0 critical defects in shipped releases.
-                \item Partnered with customers on-site to debug and integrate hardware, reducing deployment time by 30\%.
-            \fi
-            \end{highlights}
-        \end{onecolentry}
+\ifdefined\embedded
+\ifdefined\german
+\cvskillentry*{Embedded:}{4}{STM32, ESP32, RP2360/RP2040}{4}{Entwicklung von IoT-Sensoren und Erweiterungsgeräten mit libopencm3.}
+\cvskillentry{}{2}{RTOS}{2}{Erfahrung mit Echtzeitbetriebssystemen (pico-sdk, ESP-IDF, Zephyr).}
+\cvskillentry{}{4}{Low-Level-Kommunikation}{6}{Entwicklung mit I2C/SPI/UART und höheren Protokollen (CAN/RS232/RS485/Ethernet).}
+\cvskillentry{}{3}{Linux Kernel}{2}{Erstellung und Pflege von Linux-Kernelmodulen.}
+\else
+\cvskillentry*{Embedded:}{4}{STM32, ESP32, RP2360/RP2040}{4}{Developed web-hosting IoT sensors, and motherboard onboard expansion devices with libopencm3.}
+\cvskillentry{}{2}{RTOS}{2}{Used real-time operating systems with pico-sdk, ESP-IDF and Zephyr.}
+\cvskillentry{}{4}{Low-level Communications}{6}{Developed with I2C/SPI/UART and higher level (CAN/RS232/RS485/Ethernet).}
+\cvskillentry{}{3}{Linux Kernel}{2}{Created and maintained Linux kernel modules.}
+\fi
+\fi
 
+\ifdefined\software
+\ifdefined\german
+\cvskillentry*{Software}{3}{Flask \& Django}{3}{Kundengerichtete, webbasierte Lösungen.}
+\cvskillentry{}{4}{Datenbanken}{6}{Arbeiten mit SQL und ORM, inklusive MySQL (MariaDB) und PostgreSQL.}
+\cvskillentry{}{4}{CI/CD-Pipeline}{6}{Einrichtung und Nutzung sicherer, effektiver Deployment-Pipelines.}
+\cvskillentry*{Tools}{5}{git}{7}{Pflege komplexer Versionsverläufe, inklusive History-Manipulation.}
+\cvskillentry{}{3}{Jenkins}{4}{Einsatz und Einrichtung im Rahmen von CI/CD-Pipelines.}
+\cvskillentry{}{2}{Docker \& LXC}{3}{Erstellung containerisierter Umgebungen für modulare und skalierbare Lösungen.}
+\cvskillentry{}{2}{OpenGL \& WebGL}{1}{Grafikrendering mit Hardwarebeschleunigung, nativ und im Browser.}
+\else
+\cvskillentry*{Software}{3}{Flask \& Django}{3}{Client-facing, web-based solutions.}
+\cvskillentry{}{4}{Databases}{6}{Using SQL and ORM to interface with various SQL databases, including MySQL (MariaDB) and PostgreSQL.}
+\cvskillentry{}{4}{CI/CD Pipeline}{6}{Setup and used pipelines, for safe and effective continuous deployment.}
+\cvskillentry*{Tools}{5}{git}{7}{Maintained and contributed towards complex version control histories, with knowledge how to manipulate histories.}
+\cvskillentry{}{3}{Jenkins}{4}{Used, and set up, Jenkins as part of CI/CD pipelines.}
+\cvskillentry{}{2}{Docker \& LXC}{3}{Utilised to create containerised environments for modular and scalable solutions.}
+\cvskillentry{}{2}{OpenGL \& WebGL}{1}{Render graphics with hardware acceleration, natively and through the browser.}
+\fi
+\begin{cvcolumns}
+    \cvcolumn{\ifdefined\german Software\else Software\fi}{
+    \begin{itemize}
+        \item Flask, Django \& fastAPI
+        \item \ifdefined\german Datenbanken: MySQL, PostgreSQL, Zeitreihen\else Databases: MySQL, PostgreSQL, time-series\fi
+        \item CI/CD
+    \end{itemize}}
+    \cvcolumn{\ifdefined\german Konzepte\else Concepts\fi}{
+    \begin{itemize}
+        \item Cloud-Computing
+        \item Agile
+        \item Scrum
+    \end{itemize}}
+\end{cvcolumns}
+\fi
 
-        \vspace{0.2 cm}
+\vspace{-4mm}
 
-        \begin{twocolentry}{
-            2020 – 2022
-        }
-            \textbf{Software Development Engineer}, Devtank Ltd. -- Derby, UK
-        \end{twocolentry}
+\section{\sectEducation}
+\ifdefined\german
+    \cventry{2017--2020}{B.Sc (Hons) in Physik}{University of Warwick}{\textit{2.1, Zweite Klasse, obere Division}}{}{Module: Computationale Physik, wissenschaftliches Rechnen, Fluiddynamik, elektrische Energieerzeugung.}
+\else
+    \cventry{2017--2020}{B.Sc (Hons) in Physics}{University of Warwick}{\textit{2.1, Second Class, Upper Division.}}{}{Modules include: computational physics, scientific computing, fluid dynamics, electrical power generation.}
+\fi
+    \cventry{2015-2017}{A-Levels}{}{\textit{4 A to B.}}{}{}%{Mathematics, Futher Mathematics (A); Physics, Chemistry (B).}
+    \cventry{2010-2015}{GCSEs}{}{\textit{11 A* to B.}}{}{}%{Mathematics, Computer Science, Physics (A*); Chemistry, Biology, English Language, English Literature, German, ICT, History (A); Religious Education (B).}
 
-        \vspace{0.10 cm}
-        \begin{onecolentry}
-            \begin{highlights}
-                \ifdefined\german
-                \item Mitarchitekt von skalierbaren Backend-Diensten zur Überwachung/Verwaltung von IoT-Geräten, die 24/7 Betriebszeit für industrielle Kunden mit null Ausfallzeiten unterstützen.
-                \item Automatisierung interner Arbeitsabläufe mit \textbf{\textit{Python}} und \textbf{\textit{Bash}}, was ~5 Stunden/Woche manuellen Ingenieureinsatz spart.
-                \item Lieferung vertraglich vereinbarter technischer Berichte, die komplexe wissenschaftliche Ergebnisse erklären, maßgeschneidert für technische und nicht-technische Leser.
-                \item Direkte Zusammenarbeit mit Kunden, um Lösungen pünktlich und im Budgetrahmen zu liefern und gleichzeitig die Produktionskontinuität sicherzustellen.
-                \else
-                \item Co-architected scalable backend services for monitoring/managing IoT devices, supporting 24/7 uptime for industrial clients with zero downtime tolerance.
-                \item Automated internal workflows with \textbf{\textit{Python}} and \textbf{\textit{Bash}}, saving ~5 hours/week of manual engineering effort.
-                \item Delivered contracted technical reports explaining complex scientific results, tailored for both technical and non-technical readers.
-                \item Collaborated directly with clients, delivering solutions on-time and on-budget while ensuring production continuity.
-                \fi
-            \end{highlights}
-        \end{onecolentry}
+\ifdefined\embedded
+\newpage
+\vspace*{6mm}
+\fi
 
-        \vspace{0.15 cm}
+\section{\sectFinalProject}
+\ifdefined\german
+\cvitem{Titel}{\emph{Elektromagnetische Extinktion durch intergalaktischen Staub auf Strahlung von Starburst-Galaxien}}
+\cvitem{Betreuer}{Professorin Elizabeth Stanway}
+%\cvitem{Description}{Short thesis abstract}
+\cvitem{Technologien}{Python, C, MySQL, Datenmodellierung}
+\else
+\cvitem{Title}{\emph{Electromagnetic Extinction through Intergalactic Dust on Radiation from Starburst Galaxies}}
+\cvitem{Supervisors}{Professor Elizabeth Stanway}
+%\cvitem{Description}{Short thesis abstract}
+\cvitem{Technologies}{Python, C, MySQL, Data Modelling.}
+\fi
 
-    \ifdefined\german
-    \section{Technische Fähigkeiten}
-    \else
-    \section{Technical Skills}
-    \fi
+\vspace{-3mm}
 
-        \begin{onecolentry}
-            \ifdefined\german
-            \textbf{Sprachen}: C, C++, Python, SQL, Make, bash (fortgeschritten); Rust, JavaScript (ECMAScript), TypeScript, GLSL (kompetent).
-            \else
-            \textbf{Languages}: C, C++, Python, SQL, Make, bash (advanced); Rust, JavaScript (ECMAScript), TypeScript, GLSL (proficient).
-            \fi
-        \end{onecolentry}
+\section{\sectProjects}
+\cvitem{My CV}{\href{https://github.com/harry-geyer/cv}{\textit{github.com/harry-geyer/cv}}\newline Written in \LaTeX for version control and customisability.}
+\ifdefined\embedded
+\cvitem{eese}{\href{https://github.com/harry-geyer/eese}{\textit{github.com/harry-geyer/eese}}\newline Embedded `baremetal' firmware, written in C, for an STM32F07 microprocessor and an Python API.}
+\fi
+\ifdefined\software
+\cvitem{mfme}{\href{https://github.com/harry-geyer/mfme}{\textit{github.com/harry-geyer/mfme}}\newline C based webserver with mongoose, for handling file uploads.}
+\fi
+\cvitem{mqtt2psql}{\href{https://github.com/harry-geyer/mqtt2psql}{\textit{github.com/harry-geyer/mqtt2psql}}\newline A C++ project for listening to an MQTT broker for IoT sensors and inserting into a PostgreSQL database.}
+\ifdefined\software
+\cvitem{netlb}{\href{https://github.com/harry-geyer/netlb}{\textit{github.com/harry-geyer/netlb}}\newline Leaderboard webserver written in Python.}
+\cvitem{pgwb}{\href{https://github.com/harry-geyer/pgwb}{\textit{github.com/harry-geyer/pgwb}}\newline Using WebGL, GLSL shaders, and emscripten to generate 2D procedural worlds in a browser.}
+\fi
+\cvitem{web-host-mcu}{\href{https://github.com/harry-geyer/web-host-mcu}{\textit{github.com/harry-geyer/web-host-mcu}}\newline Firmware for the RP2350, including sensor and a self-hosted configuration page, with access point, DHCP and TCP/HTTP server and a lwip REST API.}
 
-        \vspace{0.2 cm}
+\vspace{-3mm}
 
-        \begin{onecolentry}
-            \ifdefined\german
-            \textbf{Embedded}: STM32, ESP32, libopencm3, ESP-IDF, I2C/SPI/UART, RTOS-Konzepte, Linux-Kernel-Treiberentwicklung, JTAG/GDB-Debugging.
-            \else
-            \textbf{Embedded}: STM32, ESP32, libopencm3, ESP-IDF, I2C/SPI/UART, RTOS concepts, Linux kernel driver dev, JTAG/GDB debugging.
-            \fi
-        \end{onecolentry}
+\section{\sectSoftSkills}
+\ifdefined\german
+\cvitem{Kreative Problemlösung}{Anwendung kreativer Problemlösungsfähigkeiten zur Entwicklung innovativer Lösungen für komplexe Herausforderungen, was zu Effizienzsteigerung führte.}
+\cvitem{Aufmerksamkeit fürs Detail}{Sorgfältige Analyse technischer Dokumente und wissenschaftlicher Artikel, um Genauigkeit und Klarheit sicherzustellen.}
+\cvitem{Effektive Kommunikation}{Kommunikationsmodul an der Universität absolviert, anschließend erfolgreich für Fach- und Nicht-Fachpublikum genutzt.}
+\cvitem{Querdenken und Selbstkritik}{Redesign eines Services zur Reduktion von Ressourcenaufwand um 75\%, gleichzeitig Selbstkritik zur kontinuierlichen Verbesserung angewendet.}
+\cvitem{Verantwortung}{Hauptansprechpartner für Auszubildende, Betreuung und Unterstützung bei deren Lernen.}
+\else
+\cvitem{Creative problem solving}{Applied creative problem-solving skills to develop innovative solutions for complex challenges, resulting in improved efficiency.}
+\cvitem{Attention to detail}{Exhibited strong attention to detail by meticulously reading and analysing technical documents and scientific papers (professionally and recreationally), ensuring accuracy and clarity in all interpretations and applications.}
+\cvitem{Effective communication}{During my time at university, I took a module in \textit{Communicating Science}, having since used these skills to communicate effectively to specialist and non-specialists with presentations and literature.}
+\cvitem{Lateral thinking and self-critiquing}{Utilised lateral thinking to redesign a service that reduced resource overheads by 75\%, while self-critiquing the process to identify areas for improvement and enhance future programming.}
+\cvitem{Responsibility}{Was lead point of contact for apprentice, overseeing work, supporting their learning.}
+\fi
 
-        \vspace{0.2 cm}
+\section{\sectInterests}
+\ifdefined\german
+\cvlistdoubleitem{Lesen}{Wandern}
+\cvlistdoubleitem{Brettspiele}{Ski \& Snowboard}
+\cvlistdoubleitem{Fotografie}{Schwimmen}
+\cvlistdoubleitem{Astronomie}{Klettern \& Bouldern}
+\else
+\cvlistdoubleitem{Reading}{Hiking}
+\cvlistdoubleitem{Board games}{Skiing \& snowboarding}
+\cvlistdoubleitem{Photography}{Swimming}
+\cvlistdoubleitem{Astronomy}{Climbing \& bouldering}
+\fi
+% \cvitem{Board games}{Modern board games require cunning and strategy.}
+% \cvitem{Reading}{From scientific papers and technical documents to fantasy and science fiction, I enjoy reading as an escape and way of learning.}
+% \cvitem{Skiing \& snowboarding}{High energy, physical excercise in beautiful scenary.}
+% \cvitem{Swimming}{Full body exercise with measurable individual improvement.}
+% \cvitem{Climbing \& bouldering}{Where problem solving meets strength and dexterity.}
+% \cvitem{Photography}{Capturing interesting and beautiful landscapes.}
+% \cvitem{Astronomy}{Using a Newtonian reflecting telescope and a DSLR to capture planets and nebulae.}
+% \cvitem{Hiking}{Exploring nature, particularly mountains on foot.}
 
-        \begin{onecolentry}
-            \textbf{Software}: Flask, Django, PostgreSQL, MySQL, CI/CD-Pipelines.
-        \end{onecolentry}
+\section{\sectOther}
+\ifdefined\german
+\cvlistitem{Doppelte Staatsbürgerschaft (Deutsch \& UK), mit Arbeitsrecht in Europa.}
+\cvlistitem{Sprachen: Englisch (Muttersprache), Deutsch (Mittelstufe).}
+\cvlistitem{Vollständiger, sauberer UK-Führerschein.}
+\cvlistitem{Absolvierte Bronze-, Silber- und Gold-Ausflüge der Duke of Edinburgh Awards.}
+\else
+\cvlistitem{Dual citizen (German \& UK), with a right to work in Europe.}
+\cvlistitem{Languages: English(Native), German(Intermediate).}
+\cvlistitem{Full and clean UK driving license.}
+\cvlistitem{Completed bronze, silver and gold Duke of Edinburgh Award expeditions.}
+\fi
 
-        \vspace{0.2 cm}
-
-        \begin{onecolentry}
-            \ifdefined\german
-            \textbf{Werkzeuge}: Git, pytest, emscripten, OpenGL/WebGL, Docker, Jenkins.
-            \else
-            \textbf{Tools}: Git, pytest, emscripten, OpenGL/WebGL, Docker, Jenkins.
-            \fi
-        \end{onecolentry}
-
-        \vspace{0.2 cm}
-
-        \begin{onecolentry}
-            \ifdefined\german
-            \textbf{Konzepte}: Agile, SCRUM, CI/CD, Unit-Testing, Cloud-Computing.
-            \else
-            \textbf{Concepts}: Agile, SCRUM, CI/CD, unit testing, cloud computing.
-            \fi
-        \end{onecolentry}
-
-        \vspace{0.15 cm}
-
-    \newpage
-
-    \ifdefined\german
-    \section{Ausbildung}
-    \else
-    \section{Education}
-    \fi
-        \begin{twocolentry}{
-            2017 – 2020
-        }
-            \ifdefined\german
-            \textbf{University of Warwick}, B.Sc. (Hons) in Physik. 2.1, Zweite Klasse, obere Division.
-            \else
-            \textbf{University of Warwick}, B.Sc. (Hons) in Physics. 2.1, Second Class, Upper Division.
-            \fi
-        \end{twocolentry}
-
-        \vspace{0.10 cm}
-        \begin{onecolentry}
-            \begin{highlights}
-                \ifdefined\german
-                \item Module umfassen: Computational Physics, Scientific Computing, Fluiddynamik, elektrische Energieerzeugung.
-                \item Abschlussprojekt: Datenanalyse und Modellierung der astronomischen Staubabsorption (\textbf{\textit{Python}}, \textbf{\textit{C}}, \textbf{\textit{SQL}} -- \textbf{\textit{MySQL}}).
-                \else
-                \item Modules include: computational physics, scientific computing, fluid dynamics, electrical power generation.
-                \item Final project: data analysis \& modeling of astronomical dust extinction (\textbf{\textit{Python}}, \textbf{\textit{C}}, \textbf{\textit{SQL}} -- \textbf{\textit{MySQL}}).
-                \fi
-            \end{highlights}
-        \end{onecolentry}
-        \vspace{0.20 cm}
-
-        \begin{twocolentry}{
-            2015 – 2017
-        }
-            \ifdefined\german
-            \textbf{A-Levels}, 4 A bis B.
-            \else
-            \textbf{A-Levels}, 4 A to B.
-            \fi
-        \end{twocolentry}
-
-        \vspace{0.10 cm}
-        \begin{onecolentry}
-            \begin{highlights}
-                \ifdefined\german
-                \item Mathematik, Weitere Mathematik (A); Physik, Chemie (B).
-                \else
-                \item Mathematics, Further Mathematics (A); Physics, Chemistry (B).
-                \fi
-            \end{highlights}
-        \end{onecolentry}
-
-        \vspace{0.20 cm}
-        \begin{twocolentry}{
-            2010 – 2015
-        }
-            \ifdefined\german
-            \textbf{GCSEs}, 11 A* bis B.
-            \else
-            \textbf{GCSEs}, 11 A* to B.
-            \fi
-        \end{twocolentry}
-        
-        \vspace{0.10 cm}
-        \begin{onecolentry}
-            \begin{highlights}
-            \ifdefined\german
-            \item Mathematik, Informatik, Physik (A*); Chemie, Biologie, Englisch Sprache, Englisch Literatur, Deutsch, ICT, Geschichte (A); Religionsunterricht (B).
-            \else
-            \item Mathematics, Computer Science, Physics (A*); Chemistry, Biology, English Language, English Literature, German, ICT, History (A); Religious Education (B).
-            \fi
-            \end{highlights}
-        \end{onecolentry}
-
-    \ifdefined\german
-    \section{Projekte \textit{(Links bereitgestellt)}}
-    \else
-    \section{Projects \textit(Links provided)}
-    \fi
-
-        \begin{twocolentry}{\href{https://github.com/harry-geyer/eese}{github.com/harry-geyer/eese}}
-            \textbf{Embedded Environmental Sensor Example}
-        \end{twocolentry}
-
-        \vspace{0.10 cm}
-        \begin{onecolentry}
-            \ifdefined\german
-            Firmware für IoT-Sensor (C, libopencm3, gdb, Python, pytest). Implementierung einer benutzerdefinierten Paketdetektion und Korruptionsidentifikation mit minimalem Overhead.
-            \else
-            Firmware for IoT sensor (C, libopencm3, gdb, Python, pytest). Implemented custom packet detection and corruption identification with minimal overhead.
-            \fi
-        \end{onecolentry}
-
-        \vspace{0.2 cm}
-
-        \begin{twocolentry}{\href{https://github.com/harry-geyer/pgwb}{github.com/harry-geyer/pgwb}}
-            \textbf{Procedurally Generated Web Background}
-        \end{twocolentry}
-
-        \vspace{0.10 cm}
-        \begin{onecolentry}
-            \ifdefined\german
-            OpenGL/WebGL verwendet, um zufällig generierte Welten zu rendern, kompiliert zu WebAssembly (C, OpenGL, WebAssembly, emscripten, JavaScript, HTML, Make).
-            \else
-            OpenGL/WebGL used to render randomly generated worlds, compiled to WebAssembly (C, OpenGL, WebAssembly, emscripten, JavaScript, HTML, Make).
-            \fi
-        \end{onecolentry}
-
-        \vspace{0.2 cm}
-
-        \begin{twocolentry}{\href{https://github.com/harry-geyer/mfme}{github.com/harry-geyer/mfme}}
-            \textbf{Mini File Manager Endpoint}
-        \end{twocolentry}
-        
-        \vspace{0.10 cm}
-        \begin{onecolentry}
-            \ifdefined\german
-            Leichtgewichtige Datei-Upload- und REST-API (C, mongoose).
-            \else
-            Lightweight file upload \& REST API (C, mongoose).
-            \fi
-        \end{onecolentry}
-        
-        \vspace{0.2 cm}
-
-        \begin{twocolentry}{\href{https://github.com/harry-geyer/cv}{github.com/harry-geyer/cv}}
-            \textbf{Curriculum Vitae}
-        \end{twocolentry}
-
-        \vspace{0.10 cm}
-        \begin{onecolentry}
-            \ifdefined\german
-            Versionskontrollierter Lebenslauf für Reproduzierbarkeit (LaTeX, texlive, Make).
-            \else
-            Version-controlled CV for reproducibility (LaTeX, texlive, Make).
-            \fi
-        \end{onecolentry}
-
-        \vspace{0.15 cm}
-
-    \ifdefined\german
-    \section{Soziale Fähigkeiten}
-    \else
-    \section{Soft Skills}
-    \fi
-
-        \begin{onecolentry}
-            \begin{highlights}
-                \ifdefined\german
-                \item \textbf{Kreative Problemlösung} -- Ich habe kreative Problemlösungsfähigkeiten angewendet, um innovative Lösungen für komplexe Herausforderungen zu entwickeln, was zu einer verbesserten Effizienz führte.
-                \item \textbf{Aufmerksamkeit für Details} -- Ich habe starke Aufmerksamkeit für Details gezeigt, indem technische Dokumente und wissenschaftliche Arbeiten (beruflich und in der Freizeit) sorgfältig gelesen und analysiert wurden, um Genauigkeit und Klarheit in allen Interpretationen und Anwendungen sicherzustellen.
-                \item \textbf{Effektive Kommunikation} -- Während meiner Zeit an der Universität habe ich ein Modul in \textit{Wissenschaftskommunikation} belegt und diese Fähigkeiten seitdem genutzt, um effektiv mit Spezialisten und Nicht-Spezialisten durch Präsentationen und Literatur zu kommunizieren.
-                \item \textbf{Laterales Denken und Selbstkritik} -- Ich habe mein laterales Denken genutzt, um einen Service neu zu gestalten, der die Ressourcenkosten um 75\% reduzierte, während ich den Prozess selbstkritisch überprüfte, um Verbesserungsmöglichkeiten zu identifizieren und zukünftige Programmierungen zu optimieren.
-                \item \textbf{Verantwortung} -- Ich war Hauptansprechpartner für Auszubildende, überwachte deren Arbeit und unterstützte ihr Lernen.
-                \else
-                \item \textbf{Creative problem solving} -- Applied creative problem-solving skills to develop innovative solutions for complex challenges, resulting in improved efficiency.
-                \item \textbf{Attention to detail} -- Exhibited strong attention to detail by meticulously reading and analysing technical documents and scientific papers (professionally and recreationally), ensuring accuracy and clarity in all interpretations and applications.
-                \item \textbf{Effictive communication} -- During my time at university, I took a module in \textit{Communicating Science}, having since used these skills to communicate effectively to specialist and non-specialists with presentations and literature. 
-                \item \textbf{Lateral thinking and self-critiquing} -- Utilised lateral thinking to redesign a service that reduced resource overheads by 75\%, while self-critiquing the process to identify areas for improvement and enhance future programming.
-                \item \textbf{Responsibility} -- Was lead point of contact for apprentice, overseeing work, supporting their learning.
-                \fi
-            \end{highlights}
-        \end{onecolentry}
-
-        \vspace{0.15 cm}
-
-    \ifdefined\german
-    \section{Sonstiges}
-    \else
-    \section{Other}
-    \fi
-
-        \begin{onecolentry}
-            \begin{highlights}
-                \ifdefined\german
-                \item Doppelstaatsbürger (Deutsch \& UK), \textbf{Recht auf Arbeit in Europa}.
-                \item Sprachen: Englisch (Muttersprache), Deutsch (mittelmäßig).
-                \item Abgeschlossene Bronze-, Silber- und Goldexpeditionen für Duke of Edinburgh Award.
-                \item Vollständiger britischer Führerschein (keine Punkte) seit 2017.
-                \else
-                \item Dual citizen (German \& UK), \textbf{right to work in Europe}.
-                \item Languages: English (native), German (intermediate).
-                \item Completed bronze, silver, and gold Duke of Edinburgh expeditions.
-                \item Full and clean UK driving license since 2017.
-                \fi
-            \end{highlights}
-        \end{onecolentry}
-
+\ifdefined\embedded
+\section{\sectReferences}
+\begin{cvcolumns}
+  \cvcolumn{Devtank Ltd.}{More available on request
+    \begin{itemize}
+      \item Cameron Browne,\newline\textbf{Operations Manager}.
+      \item Marcus A. Holder,\newline\textbf{Lead Support Engineer}.
+    \end{itemize}}
+\cvcolumn{University of Warwick}{
+    \begin{itemize}
+        \item Professor Steven P. Brown,\newline\textbf{Educational Mentor}.
+        \item Professor Elizabeth Stanway,\newline\textbf{Final Project Supervisor}.
+    \end{itemize}}
+  \cvcolumn{Other}{
+    \begin{itemize}
+      \item Rosie Howells,\newline\textbf{Character witness}.
+      \item Rob Garland,\newline\textbf{Character witness}.
+    \end{itemize}}
+\end{cvcolumns}
+\fi
 \end{document}
+
