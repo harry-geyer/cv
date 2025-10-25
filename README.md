@@ -3,7 +3,7 @@
 
 ## Dependancies
 
-- pdflatex
+- lualatex
 - make
 - openssl
 
@@ -12,7 +12,8 @@
 
     make
 
-Output will be placed `build/cv.pdf`.
+Output will be placed `build/cv_<VERSION>[.de].pdf` and
+`build/cover_letter_<VERSION>[.de].pdf`.
 
 License: see License file.
 
