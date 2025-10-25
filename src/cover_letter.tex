@@ -7,6 +7,13 @@
 \usepackage{eso-pic}
 \usepackage{charter}
 \usepackage{enumitem}
+\ifdefined\german
+\usepackage[ngerman]{babel}
+\usepackage{datetime}
+\newdateformat{germanformat}{\THEDAY{ten }\monthname[\THEMONTH], \THEYEAR}
+\else
+\usepackage[english]{babel}
+\fi
 
 \addtolength{\topmargin}{-0.75in}
 \addtolength{\textheight}{1.0in}
@@ -28,9 +35,18 @@
 \signature{H. F. Geyer}
 
 \begin{document}
-\recipient{Recruitment Team}{COMPANY, \\ ADDRESS}
-\date{\today}
-\subject{Job application}
+
+\ifdefined\german
+\begin{letter}{NAME,
+    \\ COMPANY,
+    \\ ADDRESS
+}
+\else
+\begin{letter}{NAME,
+    \\ COMPANY,
+    \\ ADDRESS
+}
+\fi
 
 \AddToShipoutPictureBG{
     \color{gr}
@@ -45,10 +61,45 @@
     \faMapMarker\enspace{Staffordshire, UK.}\hfill
 \end{center}
 
+\ifdefined\german
+\date{\germanformat{\today}}
+\else
+\date{\today}
+\fi
+
+\ifdefined\german
+\opening{Sehr geehrte Damen und Herren,}
+\else
 \opening{Dear Sir or Madam,}
+\fi
 
 \vspace{-0.1in}\setlength\parindent{24pt}
 \noindent
+
+\ifdefined\german
+mit großem Interesse bewerbe ich mich auf Positionen im Bereich Embedded-, Software- oder Backend-Entwicklung. Ich habe sowohl die britische als auch die deutsche Staatsangehörigkeit und bin somit berechtigt, in Großbritannien und der EU zu arbeiten. Für die passende Stelle bin ich gerne bereit, umzuziehen. Ich verfüge über eine Kombination aus Erfahrung in Embedded-Firmware-Entwicklung und Softwareentwicklung, wodurch ich effiziente, zuverlässige Systeme entwerfe, die Hardware und Cloud-Umgebungen miteinander verbinden.
+
+In meiner aktuellen Position als Firmware Engineer bei Devtank Ltd. entwickle und implementiere ich Echtzeit-Firmware für industrielle Überwachungs- und IoT-Systeme. Dabei arbeite ich mit Protokollen wie CAN, RS232, RS485 (MODBUS), I2C, SPI, Ethernet (PoE), Wi-Fi, LoRa, UART und USB. Hauptsächlich programmiere ich in C, nutze jedoch auch C++, Python, Bash und TypeScript und halte mich an Industriestandards wie MISRA und ISO 26262. Zu meinen Aufgaben gehören unter anderem die Weiterentwicklung des Linux-Kernels, die Definition von Embedded-Architekturen sowie Code-Reviews, um sicherzustellen, dass keine kritischen Fehler in ausgelieferten Versionen auftreten. Durch enge Zusammenarbeit mit Kunden konnte ich die Bereitstellungszeit um 30 \% reduzieren.
+
+Ich habe einen Bachelor of Science (Hons) in Physik von der University of Warwick, der meine analytischen und problemlösungsorientierten Fähigkeiten gestärkt hat. Ich arbeite sicher in Labor- und Produktionsumgebungen und nutze Oszilloskope, Logikanalysatoren und andere Diagnoseinstrumente, um Firmware und Systemleistung zu optimieren.
+
+Außerhalb der Arbeit leiste ich Beiträge zu Open-Source-Projekten, entwickle IoT-Sensor-Firmware und betreibe eine containerisierte Heimserver-Infrastruktur. Diese persönlichen Projekte zeigen Eigeninitiative, Lernbereitschaft und Vertrautheit mit Buildroot, Tasmota, STM32, ESP32, LXC und QEMU.
+
+\noindent
+Schwerpunkte meiner Expertise:
+\begin{itemize}[topsep=0pt, partopsep=0pt, parsep=0pt, itemsep=2pt]
+    \item[--] Embedded-Firmware \& RTOS (STM32, ESP32, RP2040)
+    \item[--] Linux-Systeme \& Netzwerkprotokolle
+    \item[--] Python-Automatisierung \& Backend-Entwicklung
+    \item[--] Technische Problemlösung \& Systemanalyse
+\end{itemize}
+
+\noindent
+
+Ich würde mich freuen, in einem persönlichen Gespräch zu erläutern, wie meine Fähigkeiten und Erfahrungen zu den Anforderungen Ihrer Kunden passen. Ich stehe kurzfristig für Vorstellungsgespräche zur Verfügung und bin bereit, umzuziehen. Vielen Dank für Ihre Zeit und die Berücksichtigung meiner Bewerbung.
+
+Mit freundlichen Grüßen,
+\else
 
 I am writing to express my interest in embedded, software, or backend engineering opportunities. I hold dual UK and German citizenship, giving me the right to work across the UK and EU, and I am keen to relocate for the right position. I bring a combination of embedded firmware expertise and software development experience, enabling me to design efficient, reliable systems that bridge hardware and cloud environments.
 
@@ -67,9 +118,12 @@ Key areas of expertise:
     \item[--] Technical problem-solving \& system analysis
 \end{itemize}
 
+\noindent
 I would welcome the opportunity to discuss how my skills and experience could match client roles. I am available for interviews at short notice and fully prepared to relocate. Thank you for considering my application.
 
 Yours sincerely,
+
+\fi
 
 \begin{flushright}
 \vspace{-0.1in}

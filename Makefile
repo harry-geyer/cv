@@ -12,7 +12,7 @@ VERSION:=$(shell git describe --tag --abbrev=0)
 SOURCES:=$(shell find $(SOURCE_DIR) -type f)
 DEOBFS:=$(patsubst $(SOURCE_DIR)/%,$(BUILD_DIR)/%,$(SOURCES))
 OUTPUT_FMT:=$(PROJECT)_$(VERSION)
-OUTPUTS:= $(BUILD_DIR)/cover_letter.pdf
+OUTPUTS:= $(BUILD_DIR)/cover_letter_$(VERSION).pdf $(BUILD_DIR)/cover_letter_$(VERSION).de.pdf
 
 #Obfuscated addresses and numbers to hinder bot scrapers
 define TEXT_UNOBF
@@ -64,9 +64,13 @@ all: $(OUTPUTS)
 clean:
 	rm -rf $(BUILD_DIR)
 
-$(BUILD_DIR)/cover_letter.pdf: $(BUILD_DIR)/cover_letter.tex
+$(BUILD_DIR)/cover_letter_$(VERSION).pdf: $(BUILD_DIR)/cover_letter.tex
 	@mkdir -p $(@D)
-	$(COMPILER) -jobname cover_letter --output-directory=$(BUILD_DIR) --output-fmt=pdf $<
+	$(COMPILER) -jobname=cover_letter_$(VERSION) --output-directory=$(BUILD_DIR) --output-format=pdf $<
+
+$(BUILD_DIR)/cover_letter_$(VERSION).de.pdf: $(BUILD_DIR)/cover_letter.tex
+	@mkdir -p $(@D)
+	$(COMPILER) -jobname=cover_letter_$(VERSION).de --output-directory=$(BUILD_DIR) --output-format=pdf "\def\german{} \input {$<}"
 
 .PHONY: all clean
 
