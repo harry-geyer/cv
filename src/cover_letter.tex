@@ -1,0 +1,86 @@
+\documentclass[10.5pt]{letter}
+\usepackage[utf8]{inputenc}
+\usepackage[empty]{fullpage}
+\usepackage[hidelinks]{hyperref}
+\usepackage{graphicx}
+\usepackage{fontawesome5}
+\usepackage{eso-pic}
+\usepackage{charter}
+\usepackage{enumitem}
+
+\addtolength{\topmargin}{-0.75in}
+\addtolength{\textheight}{1.0in}
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\textwidth}{1.0in}
+\definecolor{gr}{RGB}{225,225,225}
+
+\address{\vspace{3mm} \\
+    15 Montfort Place, \\
+    Newcastle-under-Lyme, \\
+    Staffordshire, \\
+    ST5 2HE, \\
+    UK.
+    \vspace{-2mm}
+}
+
+\longindentation=0pt
+
+\signature{H. F. Geyer}
+
+\begin{document}
+\recipient{Recruitment Team}{COMPANY, \\ ADDRESS}
+\date{\today}
+\subject{Job application}
+
+\AddToShipoutPictureBG{
+    \color{gr}
+    \AtPageUpperLeft{\rule[-1.3in]{\paperwidth}{1.3in}}
+}
+\begin{center}{\fontsize{28}{0}\selectfont\scshape Harry Geyer} \\
+    \href{mailto:EMAIL_ADDRESS}{\faEnvelope\enspace EMAIL_ADDRESS}\hfill
+    \href{https://linkedin.com/in/harry-geyer}{\faLinkedinIn\enspace linkedin.com/in/harry-geyer}\hfill
+    \href{tel:PHONE_NUMBER_BASIC}{\faPhone\enspace PHONE_NUMBER_NICE}\hfill \\
+    \faDesktop\enspace{\href{https://WEBSITE_URL}{WEBSITE_URL}}\hfill
+    \faGithub\enspace{\href{https://github.com/harry-geyer}{github.com/harry-geyer}} \hfill
+    \faMapMarker\enspace{Staffordshire, UK.}\hfill
+\end{center}
+
+\opening{Dear Sir or Madam,}
+
+\vspace{-0.1in}\setlength\parindent{24pt}
+\noindent
+
+I am writing to express my interest in embedded, software, or backend engineering opportunities. I hold dual UK and German citizenship, giving me the right to work across the UK and EU, and I am keen to relocate for the right position. I bring a combination of embedded firmware expertise and software development experience, enabling me to design efficient, reliable systems that bridge hardware and cloud environments.
+
+In my current role as a Firmware Engineer at Devtank Ltd., I develop and implement real-time firmware for industrial monitoring and IoT systems, working with protocols including CAN, RS232, RS485 (MODBUS), I2C, SPI, Ethernet (PoE), Wi-Fi, LoRa, UART, and USB. I primarily work in C, while also using C++, Python, Bash, and TypeScript, and I adhere to industry standards such as MISRA and ISO 26262. My contributions have included upstreaming enhancements to the Linux kernel, defining embedded architecture, and reviewing code to ensure zero critical defects in shipped releases, while collaborating directly with clients to reduce deployment time by 30%.
+
+I hold a B.Sc. (Hons) in Physics from the University of Warwick, which strengthened my analytical thinking and problem-solving skills. I am comfortable working in laboratory and production environments, using oscilloscopes, logic analysers, and other diagnostic tools to optimise firmware and system performance.
+
+Outside of work, I maintain open-source contributions, develop IoT sensor firmware, and manage a containerised home server infrastructure. My personal projects demonstrate initiative, continuous learning, and familiarity with Buildroot, Tasmota, STM32, ESP32, LXC, and QEMU.
+
+\noindent
+Key areas of expertise:
+\begin{itemize}[topsep=0pt, partopsep=0pt, parsep=0pt, itemsep=2pt]
+    \item[--] Embedded firmware \& RTOS (STM32, ESP32, RP2040)
+    \item[--] Linux systems \& networking protocols
+    \item[--] Python automation \& backend development
+    \item[--] Technical problem-solving \& system analysis
+\end{itemize}
+
+I would welcome the opportunity to discuss how my skills and experience could match client roles. I am available for interviews at short notice and fully prepared to relocate. Thank you for considering my application.
+
+Yours sincerely,
+
+\begin{flushright}
+\vspace{-0.1in}
+\includegraphics[width=1.5in]{images/sig.png}
+\vspace{-0.1in}
+
+Harry Geyer
+\end{flushright}
+\end{letter}
+\vspace{0.1in}
+\vfill
+
+\end{document}
+
